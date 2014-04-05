@@ -151,7 +151,7 @@
 //    NSString *recURL = [response.URL absoluteString];
     
     // Request status code.
-    NSString *status = [NSString stringWithFormat:@"%d", [response statusCode]];
+    NSString *status = [NSString stringWithFormat:@"%d", (int) [response statusCode]];
     
     NSLog(@"status: %@", status);
 }
