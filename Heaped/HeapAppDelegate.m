@@ -7,6 +7,8 @@
 //
 
 #import "HeapAppDelegate.h"
+#import "HeapLocationSender.h"
+
 
 @implementation HeapAppDelegate
 
@@ -16,6 +18,10 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    HeapLocationSender *dummy = [[HeapLocationSender alloc] init];
+    
+    [dummy makeBeaconManager];
+    
     return YES;
 }
 
