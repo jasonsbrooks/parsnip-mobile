@@ -1,0 +1,17 @@
+TODO LIST
+
+Send coordinates to database
+- used to generate a heatmap
+- is of the form
+    UUID : ###
+    MAJOR : ###
+    MINOR : ###
+    FLAG : ???
+- optional flag included for further actions, e.g. I need help from sales associate
+
+Pull data from endpoint
+- formatted URL?UUID={###}&MAJOR={###}&MINOR={###}
+- need to query distances from iBeacons as well
+- constantly use get requests, or use one get request and generate SQLite database
+
+Custom UI stuff - make it look pretty...

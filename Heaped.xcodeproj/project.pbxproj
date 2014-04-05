@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B7A4D5EF18EF82D700BE01CC /* todo in Resources */ = {isa = PBXBuildFile; fileRef = B7A4D5EE18EF82D700BE01CC /* todo */; };
+		B7A4D5F218EF938300BE01CC /* dealTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B7A4D5F118EF938300BE01CC /* dealTableViewController.m */; };
+		B7A4D5F618EF9DD800BE01CC /* dealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B7A4D5F418EF9DD800BE01CC /* dealViewController.m */; };
+		B7A4D5F718EF9DD800BE01CC /* dealViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B7A4D5F518EF9DD800BE01CC /* dealViewController.xib */; };
 		BB60E80518ECE40B00F39CBC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB60E80418ECE40B00F39CBC /* Foundation.framework */; };
 		BB60E80718ECE40B00F39CBC /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB60E80618ECE40B00F39CBC /* CoreGraphics.framework */; };
 		BB60E80918ECE40B00F39CBC /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB60E80818ECE40B00F39CBC /* UIKit.framework */; };
@@ -42,6 +46,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B7A4D5EE18EF82D700BE01CC /* todo */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = todo; sourceTree = "<group>"; };
+		B7A4D5F018EF938300BE01CC /* dealTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = dealTableViewController.h; sourceTree = "<group>"; };
+		B7A4D5F118EF938300BE01CC /* dealTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = dealTableViewController.m; sourceTree = "<group>"; };
+		B7A4D5F318EF9DD800BE01CC /* dealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = dealViewController.h; sourceTree = "<group>"; };
+		B7A4D5F418EF9DD800BE01CC /* dealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = dealViewController.m; sourceTree = "<group>"; };
+		B7A4D5F518EF9DD800BE01CC /* dealViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = dealViewController.xib; sourceTree = "<group>"; };
 		BB60E80118ECE40B00F39CBC /* Heaped.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Heaped.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB60E80418ECE40B00F39CBC /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		BB60E80618ECE40B00F39CBC /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -147,6 +157,11 @@
 				BB60E81518ECE40B00F39CBC /* HeapAppDelegate.h */,
 				BB60E81618ECE40B00F39CBC /* HeapAppDelegate.m */,
 				BB60E83D18ECE4E100F39CBC /* Main.storyboard */,
+				B7A4D5F318EF9DD800BE01CC /* dealViewController.h */,
+				B7A4D5F418EF9DD800BE01CC /* dealViewController.m */,
+				B7A4D5F518EF9DD800BE01CC /* dealViewController.xib */,
+				B7A4D5F018EF938300BE01CC /* dealTableViewController.h */,
+				B7A4D5F118EF938300BE01CC /* dealTableViewController.m */,
 				BB60E83F18ECE60700F39CBC /* mainViewController.h */,
 				BB60E84018ECE60700F39CBC /* mainViewController.m */,
 				BBF49A5118EDA7B3008047D0 /* HeapTriangulate.h */,
@@ -155,6 +170,7 @@
 				BB60E81B18ECE40B00F39CBC /* Images.xcassets */,
 				BB60E81818ECE40B00F39CBC /* Heaped.xcdatamodeld */,
 				BB60E80D18ECE40B00F39CBC /* Supporting Files */,
+				B7A4D5EE18EF82D700BE01CC /* todo */,
 			);
 			path = Heaped;
 			sourceTree = "<group>";
@@ -281,7 +297,9 @@
 			files = (
 				BB60E83E18ECE4E100F39CBC /* Main.storyboard in Resources */,
 				BB60E81118ECE40B00F39CBC /* InfoPlist.strings in Resources */,
+				B7A4D5EF18EF82D700BE01CC /* todo in Resources */,
 				BB60E81C18ECE40B00F39CBC /* Images.xcassets in Resources */,
+				B7A4D5F718EF9DD800BE01CC /* dealViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -301,7 +319,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				BB60E81718ECE40B00F39CBC /* HeapAppDelegate.m in Sources */,
+				B7A4D5F218EF938300BE01CC /* dealTableViewController.m in Sources */,
 				BBF49A5318EDA7B3008047D0 /* HeapTriangulate.m in Sources */,
+				B7A4D5F618EF9DD800BE01CC /* dealViewController.m in Sources */,
 				BB60E81318ECE40B00F39CBC /* main.m in Sources */,
 				BB60E81A18ECE40B00F39CBC /* Heaped.xcdatamodeld in Sources */,
 				BB60E84118ECE60700F39CBC /* mainViewController.m in Sources */,
