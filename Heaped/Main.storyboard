@@ -11,28 +11,13 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="saT-xa-2R3">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
+                    <connections>
+                        <segue destination="JLW-56-i3V" kind="relationship" relationship="rootViewController" id="5C7-7d-Hgc"/>
+                    </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0s3-lP-DJU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-783" y="-253"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="nn3-fD-NMY">
-            <objects>
-                <viewController id="BKR-pF-mY9" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="X5t-9Y-flF"/>
-                        <viewControllerLayoutGuide type="bottom" id="uMD-7W-jL9"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="2tD-cU-nOh">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="o41-SM-CuH" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-306" y="-240"/>
         </scene>
         <!--Main View Controller - iBeacon Test View-->
         <scene sceneID="tjN-n6-gI6">
@@ -159,11 +144,11 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UFR-Sn-Pac" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <swipeGestureRecognizer direction="left" id="xph-Yw-6xH">
                     <connections>
-                        <segue destination="vWV-tF-mcU" kind="push" id="BuB-c1-Wys"/>
+                        <segue destination="vWV-tF-mcU" kind="push" id="48M-XZ-nrT"/>
                     </connections>
                 </swipeGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="-306" y="498"/>
+            <point key="canvasLocation" x="-346" y="-253"/>
         </scene>
         <!--Main View Controller - Main Menu-->
         <scene sceneID="ffi-QF-CLD">
@@ -201,7 +186,7 @@
                     </connections>
                 </swipeGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="186" y="-265"/>
+            <point key="canvasLocation" x="86" y="-253"/>
         </scene>
         <!--Table View Controller-->
         <scene sceneID="rh4-R1-L1n">
@@ -290,7 +275,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zAn-7K-7Vc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="646" y="-692"/>
+            <point key="canvasLocation" x="670" y="-400"/>
         </scene>
         <!--Main View Controller - Store Info-->
         <scene sceneID="CEH-Be-aGZ">
@@ -301,7 +286,7 @@
                         <viewControllerLayoutGuide type="bottom" id="Osl-JL-DZj"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="3nC-tv-TfW">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="327"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Hours Etc." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sio-vo-250">
@@ -319,14 +304,14 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zz2-D5-m5e" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1112" y="-1197"/>
+            <point key="canvasLocation" x="1136" y="-661"/>
         </scene>
         <!--Deal Table View Controller-->
         <scene sceneID="y23-Kd-XDW">
             <objects>
                 <tableViewController id="nWC-fe-LSQ" customClass="dealTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="lcZ-ip-yEf">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="170"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="171"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
@@ -351,7 +336,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BTH-Xk-5jU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1536" y="-520"/>
+            <point key="canvasLocation" x="1558" y="-150"/>
         </scene>
         <!--Main View Controller - Reserved 1-->
         <scene sceneID="MjK-Vb-sde">
@@ -448,7 +433,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7v0-o1-gK9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1112" y="-520"/>
+            <point key="canvasLocation" x="1136" y="-228"/>
         </scene>
         <!--Deal View Controller-->
         <scene sceneID="UP2-AX-wOi">
@@ -458,7 +443,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1Y4-Jg-3E0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1952" y="-520"/>
+            <point key="canvasLocation" x="1982" y="-150"/>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
