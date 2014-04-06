@@ -18,8 +18,6 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    HeapLocationSender *dummy = [[HeapLocationSender alloc] init];
-    
     [[UINavigationBar appearance] setBarTintColor:[UIColor colorWithRed:220.0/255.0 green:132.0/255.0 blue:53.0/255.0 alpha:.5]];
     
     [[UINavigationBar appearance] setTitleTextAttributes:
@@ -55,8 +53,8 @@
     
 //    [tabBarItem4 setFinishedSelectedImage:[UIImage imageNamed:@"settings_selected.png"] withFinishedUnselectedImage:[UIImage imageNamed:@"settings.png"]];
     
-    [dummy makeBeaconManager];
-    
+//    [dummy makeBeaconManager];
+
     return YES;
 }
 

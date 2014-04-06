@@ -18,6 +18,9 @@
 @property ESTBeacon *beacon2;
 
 @property NSURLConnection *connection;
+
+@property int counter;
+@property NSMutableArray *arr;
 @end
 
 @implementation mainViewController
@@ -41,20 +44,26 @@
 {
     [super viewDidLoad];
     
+
+//  Initialize data array
+    self.arr = [[NSMutableArray alloc] init];
+
     self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:nil action:nil];
     
 //    [self sendData];
     
     // Beacon Manager discovers beacons.
-//    self.beaconManager = [[ESTBeaconManager alloc] init];
-//    self.beaconManager.delegate = self;
-//    self.beaconManager.avoidUnknownStateBeacons = YES;
-//    
-//    // Set the region (could be used to identify a store).
-//    self.region = [[ESTBeaconRegion alloc] initWithProximityUUID:ESTIMOTE_PROXIMITY_UUID identifier:@"EstimoteSampleRegion"];
-    
+    self.beaconManager = [[ESTBeaconManager alloc] init];
+    self.beaconManager.delegate = self;
+    self.beaconManager.avoidUnknownStateBeacons = YES;
+
+    // Set the region (could be used to identify a store).
+    self.region = [[ESTBeaconRegion alloc] initWithProximityUUID:ESTIMOTE_PROXIMITY_UUID identifier:@"EstimoteSampleRegion"];
+
     // Search for beacons within region.
 //    [self.beaconManager startRangingBeaconsInRegion:self.region];
+    
+//    [self sendData];
     
 }
 
@@ -65,6 +74,8 @@
     // Detected a beacon
     if([beacons count] > 0)
     {
+        
+        
         // Show its distance in distance0.
         self.beacon0 = [beacons objectAtIndex:0];
         self.distance0.text = [self.beacon0.distance stringValue];
@@ -91,6 +102,22 @@
         else
             NSLog(@"Couldn't find beacon 1.");
         
+//      Append a new point to the data array.
+        
+        NSDate *now = [NSDate date];
+        NSNumber *x = [NSNumber numberWithInteger:0];
+        NSNumber *y = [NSNumber numberWithInteger:0];
+        
+        [self addPoint:[self makePoint:x y:y time:now]];
+        
+//      Increment counter, and send data every 10 detections.
+        self.counter++;
+        NSLog(@"counter: %d\n", self.counter);
+        
+        if (self.counter > 10) {
+            [self sendData];
+            self.counter = 0;
+        }
     }
     else
         NSLog(@"Couldn't find beacon 0.");
@@ -111,6 +138,56 @@
 //    Issue POST request here.
 }
 
+-(NSDictionary *)makePoint:(NSNumber *)x y:(NSNumber *)y time:(NSDate *)t
+{
+    
+    NSString *time = [t description];
+    
+//  point = {"x": x-coor, "y": y-coor, "t": date/time}
+    NSDictionary *point = [[NSDictionary alloc] initWithObjects:@[x, y, time] forKeys:@[@"x", @"y", @"time"]];
+    
+    return point;
+}
+
+-(void)addPoint:(NSDictionary *)point
+{
+    [self.arr addObject:point];
+}
+
+// Create a set of data as JSON object.
+-(NSData *)packData
+{
+    //    {"points":[{"x":0,"y":0,"t":0},
+    //                {"x":2,"y":3,"t":1},
+    //                {"x":5,"y":6,"t":2}]}
+    
+//    NSDate *now = [NSDate date];
+//    
+//    NSNumber *x = [NSNumber numberWithInteger:0];
+//    NSNumber *y = [NSNumber numberWithInteger:0];
+//    
+//    NSDictionary *p0 = [self makePoint:x y:y time:now];
+//    NSDictionary *p1 = [self makePoint:x y:y time:now];
+//    NSDictionary *p2 = [self makePoint:x y:y time:now];
+//    
+//    NSArray *arr = @[p0, p1, p2];
+    
+    NSMutableDictionary *dict = [[NSMutableDictionary alloc] initWithCapacity:10];
+    [dict setObject:self.arr forKey:@"points"];
+    
+//  Change this depending on the user.
+    NSNumber *userID = [NSNumber numberWithInteger:1];
+    [dict setObject:userID forKey:@"userID"];
+
+    
+    NSData *data = [NSJSONSerialization dataWithJSONObject:dict options:0 error:0];
+    
+//    NSString *dataStr = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+    //    NSLog(@"Your dummy data: %@\n", dataStr);
+    
+    return data;
+}
+
 -(void)sendData
 {
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc]
@@ -118,25 +195,21 @@
                                                  URLWithString:@"http://www.michaelhzhao.com/test.php"]];
     
     [request setHTTPMethod:@"POST"];
-    [request setValue:@"text/plain"
-   forHTTPHeaderField:@"Content-type"];
+    [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
     
-    NSString *xmlString = @"This is a test. a";
+    NSData *data = [self packData];
+    NSString *dummyString = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
     
-    [request setValue:[NSString stringWithFormat:@"%lu",
-                       (unsigned long)[xmlString length]]
-   forHTTPHeaderField:@"Content-length"];
+    [request setValue:[NSString stringWithFormat:@"%lu", (unsigned long)[dummyString length]] forHTTPHeaderField:@"Content-length"];
     
-    [request setHTTPBody:[xmlString
-                          dataUsingEncoding:NSUTF8StringEncoding]];
-   
+    [request setHTTPBody:data];
+    
     self.connection = [[NSURLConnection alloc] initWithRequest:request delegate:self];
 }
 
 // Upon establishing connection.
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection
 {
-    NSLog(@"Success.");
 }
 
 // Handles response data from HTTP request.
@@ -149,12 +222,13 @@
 // Handles response metadata?
 - (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSHTTPURLResponse *)response
 {
-//    Receiver's URL.
-//    NSString *recURL = [response.URL absoluteString];
+    //    Receiver's URL.
+    NSString *recURL = [response.URL absoluteString];
     
     // Request status code.
     NSString *status = [NSString stringWithFormat:@"%d", (int) [response statusCode]];
     
-    NSLog(@"status: %@", status);
+    NSLog(@"\nstatus: %@\nurl: %@", status, recURL);
 }
 @end
+

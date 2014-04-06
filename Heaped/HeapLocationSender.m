@@ -18,12 +18,14 @@
 @property ESTBeacon *beacon2;
 
 @property NSURLConnection *connection;
+
+@property NSInteger counter;
 @end
 
 @implementation HeapLocationSender
+
 - (void)makeBeaconManager
 {
-    [self sendData];
     
     // Beacon Manager discovers beacons.
     self.beaconManager = [[ESTBeaconManager alloc] init];
@@ -34,7 +36,10 @@
     self.region = [[ESTBeaconRegion alloc] initWithProximityUUID:ESTIMOTE_PROXIMITY_UUID identifier:@"EstimoteSampleRegion"];
     
     // Search for beacons within region.
-    //    [self.beaconManager startRangingBeaconsInRegion:self.region];
+    [self.beaconManager startRangingBeaconsInRegion:self.region];
+    
+//    [self sendData];
+
 }
 
 -(void)beaconManager:(ESTBeaconManager *)manager
@@ -44,6 +49,10 @@
     // Detected a beacon
     if([beacons count] > 0)
     {
+        self.counter++;
+        
+        NSLog(@"counter: %d\n", self.counter);
+        
         // Show its distance in distance0.
         self.beacon0 = [beacons objectAtIndex:0];
         NSLog(@"Beacon0 Unique: %@", [self.beacon0.proximityUUID UUIDString]);
@@ -66,21 +75,6 @@
         NSLog(@"Couldn't find beacon 0.");
 }
 
-
-- (IBAction)startData:(id)sender
-{
-    [self.beaconManager startRangingBeaconsInRegion:self.region];
-}
-
-- (IBAction)stopData:(id)sender
-{
-    [self.beacon0 disconnectBeacon];
-    [self.beacon1 disconnectBeacon];
-    [self.beacon2 disconnectBeacon];
-    
-    //    Issue POST request here.
-}
-
 -(NSData *)dummyData
 {
     
@@ -99,7 +93,7 @@
     
     NSData *data = [NSJSONSerialization dataWithJSONObject:dict options:0 error:0];
     
-    NSString *dataStr = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+//    NSString *dataStr = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
     
 //    NSLog(@"Your dummy data: %@\n", dataStr);
     
