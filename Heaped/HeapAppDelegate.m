@@ -53,8 +53,6 @@
     
 //    [tabBarItem4 setFinishedSelectedImage:[UIImage imageNamed:@"settings_selected.png"] withFinishedUnselectedImage:[UIImage imageNamed:@"settings.png"]];
     
-//    [dummy makeBeaconManager];
-
     return YES;
 }
 
