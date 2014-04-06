@@ -33,6 +33,28 @@
     
     [[UILabel appearance] setFont:[UIFont fontWithName:@"HelveticaNeue-Thin" size:18.0]];
     
+    UITabBarController *tabBarController = (UITabBarController *)self.window.rootViewController;
+    UITabBar *tabBar = tabBarController.tabBar;
+    UITabBarItem *tabBarItem1 = [tabBar.items objectAtIndex:0];
+    UITabBarItem *tabBarItem2 = [tabBar.items objectAtIndex:1];
+    UITabBarItem *tabBarItem3 = [tabBar.items objectAtIndex:2];
+    UITabBarItem *tabBarItem4 = [tabBar.items objectAtIndex:3];
+    
+//    tabBarItem1.title = @"Store Info";
+//    tabBarItem2.title = @"Deals";
+//    tabBarItem3.title = @"Help";
+    tabBarItem4.title = @"Testing";
+
+    [tabBarItem1 setImage:[UIImage imageNamed:@"info.png"]];
+    [tabBarItem2 setImage:[UIImage imageNamed:@"dollarsign.png"]];
+    [tabBarItem3 setImage:[UIImage imageNamed:@"question.png"]];
+    
+    // thanks to iconbeast for the icons @ iconbeast.com/free
+    
+    [[UITabBar appearance] setTintColor:[UIColor colorWithRed:220.0/255.0 green:132.0/255.0 blue:53.0/255.0 alpha:.8]];
+    
+//    [tabBarItem4 setFinishedSelectedImage:[UIImage imageNamed:@"settings_selected.png"] withFinishedUnselectedImage:[UIImage imageNamed:@"settings.png"]];
+    
     [dummy makeBeaconManager];
     
     return YES;

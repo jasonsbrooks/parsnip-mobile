@@ -8,7 +8,7 @@
         <scene sceneID="Gb1-oG-3P3">
             <objects>
                 <navigationController title="Test Nav Controller" definesPresentationContext="YES" id="bbZ-T2-Xqt" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Test" id="PzK-39-0tS"/>
+                    <tabBarItem key="tabBarItem" title="" id="PzK-39-0tS"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="dDD-Za-Yei">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -18,7 +18,44 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="P1e-BB-1o6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="670" y="437"/>
+            <point key="canvasLocation" x="670" y="1087"/>
+        </scene>
+        <!--Navigation Controller - Command Nav Controller-->
+        <scene sceneID="bX3-3f-PaI">
+            <objects>
+                <navigationController title="Command Nav Controller" definesPresentationContext="YES" id="IpO-Pb-Vls" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="" id="i5p-lO-ipS">
+                        <inset key="imageInsets" minX="0.0" minY="5" maxX="0.0" maxY="-5"/>
+                    </tabBarItem>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="7tJ-cb-0cg">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="aaT-Yc-Gny" kind="relationship" relationship="rootViewController" id="RLk-A2-Oit"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="njb-0S-mgP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="670" y="410"/>
+        </scene>
+        <!--Main View Controller - Commands-->
+        <scene sceneID="2IY-6a-Xr6">
+            <objects>
+                <viewController title="Commands" id="aaT-Yc-Gny" customClass="mainViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="OfP-O4-HKE"/>
+                        <viewControllerLayoutGuide type="bottom" id="Xs0-CM-ihe"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="N13-IS-Tc2">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Help" id="mKb-5T-uz9"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2rH-jV-oMh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1082" y="410"/>
         </scene>
         <!--Main View Controller - iBeacon Test View-->
         <scene sceneID="tjN-n6-gI6">
@@ -132,7 +169,7 @@
                             <outletCollection property="gestureRecognizers" destination="xph-Yw-6xH" appends="YES" id="ELs-dE-PCS"/>
                         </connections>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Testing" id="fEn-S6-2oc"/>
+                    <tabBarItem key="tabBarItem" title="" id="fEn-S6-2oc"/>
                     <navigationItem key="navigationItem" title="iBeacon Test View" id="gai-cj-bC4"/>
                     <connections>
                         <outlet property="beaconID0" destination="aha-WL-1dk" id="w2h-ek-cWW"/>
@@ -150,7 +187,7 @@
                     </connections>
                 </swipeGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1082" y="437"/>
+            <point key="canvasLocation" x="1082" y="1087"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="CeM-tl-DH6">
@@ -166,7 +203,8 @@
                     <connections>
                         <segue destination="uAI-xH-f1P" kind="relationship" relationship="viewControllers" id="AIf-jo-6VW"/>
                         <segue destination="sNK-2p-jcm" kind="relationship" relationship="viewControllers" id="E4e-Bq-du3"/>
-                        <segue destination="bbZ-T2-Xqt" kind="relationship" relationship="viewControllers" id="mBi-0f-qfA"/>
+                        <segue destination="IpO-Pb-Vls" kind="relationship" relationship="viewControllers" id="hNN-QU-jmG"/>
+                        <segue destination="bbZ-T2-Xqt" kind="relationship" relationship="viewControllers" id="t2X-om-WnK"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0wx-k7-MgA" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -177,7 +215,9 @@
         <scene sceneID="k7a-3I-PY7">
             <objects>
                 <navigationController title="Store Nav Controller" definesPresentationContext="YES" id="uAI-xH-f1P" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Store Info" id="xek-Mr-57Z"/>
+                    <tabBarItem key="tabBarItem" title="" id="xek-Mr-57Z">
+                        <inset key="imageInsets" minX="0.0" minY="5" maxX="0.0" maxY="-5"/>
+                    </tabBarItem>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="hlB-5W-mpM">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -210,7 +250,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Store Info" id="20C-3o-F72"/>
+                    <tabBarItem key="tabBarItem" title="" id="20C-3o-F72"/>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Store Info" id="oXx-aL-Lho"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
@@ -249,7 +289,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BTH-Xk-5jU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1484" y="-231"/>
+            <point key="canvasLocation" x="1484" y="-265"/>
         </scene>
         <!--Main View Controller - Reserved 2-->
         <scene sceneID="lso-i0-18t">
@@ -281,13 +321,16 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vYl-Qv-GOh" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <swipeGestureRecognizer direction="left" id="ENZ-kr-Chj"/>
             </objects>
-            <point key="canvasLocation" x="1484" y="437"/>
+            <point key="canvasLocation" x="1484" y="1087"/>
         </scene>
         <!--Navigation Controller - Deal Nav Controller-->
         <scene sceneID="jDb-Nz-tiX">
             <objects>
                 <navigationController title="Deal Nav Controller" definesPresentationContext="YES" id="sNK-2p-jcm" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Deals" id="GO8-4c-Q6R"/>
+                    <tabBarItem key="tabBarItem" title="" id="GO8-4c-Q6R">
+                        <inset key="imageInsets" minX="0.0" minY="5" maxX="0.0" maxY="-5"/>
+                        <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="0.0"/>
+                    </tabBarItem>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="fDo-xi-RCa">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -337,7 +380,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1Y4-Jg-3E0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1870" y="-231"/>
+            <point key="canvasLocation" x="1870" y="-265"/>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
