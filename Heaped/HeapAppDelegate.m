@@ -18,10 +18,14 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    HeapLocationSender *dummy = [[HeapLocationSender alloc] init];
+//    HeapLocationSender *dummy = [[HeapLocationSender alloc] init];
+//    
+//    [dummy makeBeaconManager];
     
-    [dummy makeBeaconManager];
+    NSDate *now = [NSDate date];
     
+    NSLog(@"%@", [now description]);
+
     return YES;
 }
 
