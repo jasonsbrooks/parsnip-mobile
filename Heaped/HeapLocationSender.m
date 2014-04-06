@@ -81,6 +81,31 @@
     //    Issue POST request here.
 }
 
+-(NSData *)dummyData
+{
+    
+//    {"points":[{"x":0,"y":0,"t":0},
+//                {"x":2,"y":3,"t":1},
+//                {"x":5,"y":6,"t":2}]}
+    
+    NSDictionary *p0 = [[NSDictionary alloc] initWithObjects:@[@0, @0, @0] forKeys:@[@"x", @"y", @"t"]];
+    NSDictionary *p1 = [[NSDictionary alloc] initWithObjects:@[@2, @3, @1] forKeys:@[@"x", @"y", @"t"]];
+    NSDictionary *p2 = [[NSDictionary alloc] initWithObjects:@[@5, @6, @2] forKeys:@[@"x", @"y", @"t"]];
+    
+    NSArray *arr = @[p0, p1, p2];
+    
+    NSMutableDictionary *dict = [[NSMutableDictionary alloc] initWithCapacity:10];
+    [dict setObject:arr forKey:@"points"];
+    
+    NSData *data = [NSJSONSerialization dataWithJSONObject:dict options:0 error:0];
+    
+    NSString *dataStr = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+    
+//    NSLog(@"Your dummy data: %@\n", dataStr);
+    
+    return data;
+}
+
 -(void)sendData
 {
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc]
@@ -88,17 +113,14 @@
                                                  URLWithString:@"http://www.michaelhzhao.com/test.php"]];
     
     [request setHTTPMethod:@"POST"];
-    [request setValue:@"text/plain"
-   forHTTPHeaderField:@"Content-type"];
+    [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
     
-    NSString *xmlString = @"This is a test. a";
+    NSData *data = [self dummyData];
+    NSString *dummyString = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+
+    [request setValue:[NSString stringWithFormat:@"%lu", (unsigned long)[dummyString length]] forHTTPHeaderField:@"Content-length"];
     
-    [request setValue:[NSString stringWithFormat:@"%lu",
-                       (unsigned long)[xmlString length]]
-   forHTTPHeaderField:@"Content-length"];
-    
-    [request setHTTPBody:[xmlString
-                          dataUsingEncoding:NSUTF8StringEncoding]];
+    [request setHTTPBody:data];
     
     self.connection = [[NSURLConnection alloc] initWithRequest:request delegate:self];
 }
@@ -106,7 +128,6 @@
 // Upon establishing connection.
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection
 {
-    NSLog(@"Success.");
 }
 
 // Handles response data from HTTP request.
@@ -120,11 +141,11 @@
 - (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSHTTPURLResponse *)response
 {
     //    Receiver's URL.
-    //    NSString *recURL = [response.URL absoluteString];
+    NSString *recURL = [response.URL absoluteString];
     
     // Request status code.
     NSString *status = [NSString stringWithFormat:@"%d", (int) [response statusCode]];
     
-    NSLog(@"status: %@", status);
+    NSLog(@"\nstatus: %@\nurl: %@", status, recURL);
 }
 @end
