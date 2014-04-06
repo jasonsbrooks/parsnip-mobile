@@ -13,7 +13,7 @@
 @property (strong, nonatomic) NSArray *dealArray;
 @property (strong, nonatomic) IBOutlet UILabel *dealTitle;
 @property (strong, nonatomic) IBOutlet UILabel *dealBlurb;
-@property (strong, nonatomic) IBOutlet UITextView *dealDescription;
+@property (strong, nonatomic) IBOutlet UILabel *dealDescription;
 @property (strong, nonatomic) IBOutlet UIImageView *dealBG;
 
 @end

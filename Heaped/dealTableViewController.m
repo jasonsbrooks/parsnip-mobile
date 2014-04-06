@@ -71,6 +71,7 @@
     entry = self.deals[indexPath.row];
     
     cell.textLabel.text = entry;
+    cell.textLabel.font = [UIFont fontWithName:@"HelveticaNeue-Light" size:16.0];
     return cell;
 }
 
@@ -129,7 +130,7 @@
         
         // access db with row
         
-        dealDetailViewController.dealArray = @[self.deals[row], @"I dunno", @"I dunno", @"I dunno"];
+        dealDetailViewController.dealArray = @[self.deals[row], @"some blurb", @"loooong description of deal and shit" , @"image_src"];
     }
     
 }
