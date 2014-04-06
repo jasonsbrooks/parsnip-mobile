@@ -8,7 +8,7 @@
 
 #import "HeapAppDelegate.h"
 #import "HeapLocationSender.h"
-
+#import "HeapTrilaterate.h"
 
 @implementation HeapAppDelegate
 
@@ -18,6 +18,17 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+//  Beacon positions:
+    NSArray *x = @[@3, @9, @4];
+    NSArray *y = @[@0, @0, @8];
+    
+//  Create trilateration object.
+    HeapTrilaterate *t = [[HeapTrilaterate alloc] initWithBeacons:x y:y];
+    
+//  Instance of trilateration, given distances from three beacons.
+    [t trilaterate:@[@6.4031, @4.1231, @5.6568]];
+  
+    
     [[UINavigationBar appearance] setBarTintColor:[UIColor colorWithRed:220.0/255.0 green:132.0/255.0 blue:53.0/255.0 alpha:.5]];
     
     [[UINavigationBar appearance] setTitleTextAttributes:
@@ -53,7 +64,6 @@
     
 //    [tabBarItem4 setFinishedSelectedImage:[UIImage imageNamed:@"settings_selected.png"] withFinishedUnselectedImage:[UIImage imageNamed:@"settings.png"]];
     
-//    [dummy makeBeaconManager];
 
     return YES;
 }
