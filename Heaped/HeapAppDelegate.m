@@ -18,13 +18,19 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-//    HeapLocationSender *dummy = [[HeapLocationSender alloc] init];
-//    
-//    [dummy makeBeaconManager];
+    [[UINavigationBar appearance] setBarTintColor:[UIColor colorWithRed:220.0/255.0 green:132.0/255.0 blue:53.0/255.0 alpha:.5]];
     
-    NSDate *now = [NSDate date];
+    [[UINavigationBar appearance] setTitleTextAttributes:
+        [NSDictionary dictionaryWithObjectsAndKeys:
+            [UIColor colorWithRed:245.0/255.0 green:245.0/255.0 blue:245.0/255.0 alpha:1.0] , NSForegroundColorAttributeName,
+            [UIFont fontWithName:@"HelveticaNeue-Thin" size:25.0] , NSFontAttributeName,
+        nil]
+    ];
     
-    NSLog(@"%@", [now description]);
+    [[UINavigationBar appearance] setTintColor:[UIColor colorWithRed:240.0/255.0 green: 234.0/255.0 blue:245.0/255.0 alpha:1.0]];
+    
+    [[UILabel appearance] setFont:[UIFont fontWithName:@"HelveticaNeue-Thin" size:18.0]];
+    
 
     return YES;
 }

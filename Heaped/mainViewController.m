@@ -44,8 +44,13 @@
 {
     [super viewDidLoad];
     
+
 //  Initialize data array
     self.arr = [[NSMutableArray alloc] init];
+
+    self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:nil action:nil];
+    
+//    [self sendData];
     
     // Beacon Manager discovers beacons.
     self.beaconManager = [[ESTBeaconManager alloc] init];

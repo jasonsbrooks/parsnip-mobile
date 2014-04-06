@@ -28,8 +28,14 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     _dealTitle.text = _dealArray[0];
+    _dealTitle.font = [UIFont fontWithName:@"HelveticaNeue" size:20.0];
+
     _dealBlurb.text = _dealArray[1];
+    _dealBlurb.font = [UIFont fontWithName:@"HelveticaNeue-Light" size:18.0];
+    
     _dealDescription.text = _dealArray[2];
+    _dealDescription.font = [UIFont fontWithName:@"HelveticaNeue-Thin" size:16.0];
+    
     _dealBG.image = [UIImage imageNamed:_dealArray[3]];
 }
 
