@@ -1,5 +1,9 @@
 TODO LIST
 
+Triangulation algorithm
+    - Beacon identification within store (To determine distances from specific beacons).
+        * GET store's beaconIDs, and map beaconID -> distance.
+
 Send coordinates to database
 - used to generate a heatmap
 - is of the form
