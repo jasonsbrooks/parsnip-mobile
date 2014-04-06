@@ -23,13 +23,13 @@
 -(void)setValues:(NSArray *)x y:(NSArray *)y
 {
     
-    x0 = [[x objectAtIndex:0] doubleValue];
-    x1 = [[x objectAtIndex:1] doubleValue];
-    x2 = [[x objectAtIndex:2] doubleValue];
+    float x0 = [[x objectAtIndex:0] doubleValue];
+    float x1 = [[x objectAtIndex:1] doubleValue];
+    float x2 = [[x objectAtIndex:2] doubleValue];
     
-    y0 = [[y objectAtIndex:0] doubleValue];
-    y1 = [[y objectAtIndex:1] doubleValue];
-    y2 = [[y objectAtIndex:2] doubleValue];
+    float y0 = [[y objectAtIndex:0] doubleValue];
+    float y1 = [[y objectAtIndex:1] doubleValue];
+    float y2 = [[y objectAtIndex:2] doubleValue];
     
     //P0,P1,P2 is the point and 2-dimension vector
     P0 = [[NSMutableArray alloc] initWithCapacity:0];

@@ -51,7 +51,7 @@
     {
         self.counter++;
         
-        NSLog(@"counter: %d\n", self.counter);
+        NSLog(@"counter: %lu\n", (unsigned long)self.counter);
         
         // Show its distance in distance0.
         self.beacon0 = [beacons objectAtIndex:0];
