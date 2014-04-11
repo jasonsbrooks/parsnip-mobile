@@ -45,6 +45,7 @@
     [P2 addObject:[NSNumber numberWithDouble:x2]];
     [P2 addObject:[NSNumber numberWithDouble:y2]];
 }
+
 -(NSArray *)trilaterate:(NSArray *)dist
 {
     if ([dist count] < 3)

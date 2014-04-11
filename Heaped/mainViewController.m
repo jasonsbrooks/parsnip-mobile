@@ -50,8 +50,6 @@
 
     self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:nil action:nil];
     
-//    [self sendData];
-    
     // Beacon Manager discovers beacons.
     self.beaconManager = [[ESTBeaconManager alloc] init];
     self.beaconManager.delegate = self;
@@ -59,12 +57,6 @@
 
     // Set the region (could be used to identify a store).
     self.region = [[ESTBeaconRegion alloc] initWithProximityUUID:ESTIMOTE_PROXIMITY_UUID identifier:@"EstimoteSampleRegion"];
-
-    // Search for beacons within region.
-//    [self.beaconManager startRangingBeaconsInRegion:self.region];
-    
-//    [self sendData];
-    
 }
 
 -(void)beaconManager:(ESTBeaconManager *)manager
@@ -74,8 +66,6 @@
     // Detected a beacon
     if([beacons count] > 0)
     {
-        
-        
         // Show its distance in distance0.
         self.beacon0 = [beacons objectAtIndex:0];
         self.distance0.text = [self.beacon0.distance stringValue];
@@ -114,7 +104,7 @@
         self.counter++;
         NSLog(@"counter: %d\n", self.counter);
         
-        if (self.counter > 10) {
+        if (self.counter > 2) {
             [self sendData];
             self.counter = 0;
         }
@@ -157,21 +147,6 @@
 // Create a set of data as JSON object.
 -(NSData *)packData
 {
-    //    {"points":[{"x":0,"y":0,"t":0},
-    //                {"x":2,"y":3,"t":1},
-    //                {"x":5,"y":6,"t":2}]}
-    
-//    NSDate *now = [NSDate date];
-//    
-//    NSNumber *x = [NSNumber numberWithInteger:0];
-//    NSNumber *y = [NSNumber numberWithInteger:0];
-//    
-//    NSDictionary *p0 = [self makePoint:x y:y time:now];
-//    NSDictionary *p1 = [self makePoint:x y:y time:now];
-//    NSDictionary *p2 = [self makePoint:x y:y time:now];
-//    
-//    NSArray *arr = @[p0, p1, p2];
-    
     NSMutableDictionary *dict = [[NSMutableDictionary alloc] initWithCapacity:10];
     [dict setObject:self.arr forKey:@"points"];
     
@@ -192,7 +167,7 @@
 {
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc]
                                     initWithURL:[NSURL
-                                                 URLWithString:@"http://www.michaelhzhao.com/test.php"]];
+                                                 URLWithString:@"http://4654b395.ngrok.com/floorplan/michael"]];
     
     [request setHTTPMethod:@"POST"];
     [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
