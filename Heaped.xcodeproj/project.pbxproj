@@ -32,6 +32,7 @@
 		BB60E84C18ECEBB300F39CBC /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB60E84B18ECEBB300F39CBC /* CoreLocation.framework */; };
 		BB60E85918ECF32400F39CBC /* libEstimoteSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BB60E85818ECF32400F39CBC /* libEstimoteSDK.a */; };
 		BB60E85D18ECF40000F39CBC /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB60E85C18ECF40000F39CBC /* SystemConfiguration.framework */; };
+		BBA29B7818F86693004BA39D /* HeapLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BBA29B7718F86693004BA39D /* HeapLoginViewController.m */; };
 		BBD5F72E18F08A4700003F8B /* HeapLocationSender.m in Sources */ = {isa = PBXBuildFile; fileRef = BBD5F72D18F08A4700003F8B /* HeapLocationSender.m */; };
 		BBF49A5318EDA7B3008047D0 /* HeapTrilaterate.m in Sources */ = {isa = PBXBuildFile; fileRef = BBF49A5218EDA7B3008047D0 /* HeapTrilaterate.m */; };
 /* End PBXBuildFile section */
@@ -83,6 +84,8 @@
 		BB60E86718ECF48400F39CBC /* ESTBeaconManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ESTBeaconManager.h; sourceTree = "<group>"; };
 		BB60E86818ECF48400F39CBC /* ESTBeaconRegion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ESTBeaconRegion.h; sourceTree = "<group>"; };
 		BB60E86918ECF48400F39CBC /* ESTBeaconUpdateInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ESTBeaconUpdateInfo.h; sourceTree = "<group>"; };
+		BBA29B7618F86693004BA39D /* HeapLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HeapLoginViewController.h; sourceTree = "<group>"; };
+		BBA29B7718F86693004BA39D /* HeapLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HeapLoginViewController.m; sourceTree = "<group>"; };
 		BBD5F72C18F08A4700003F8B /* HeapLocationSender.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HeapLocationSender.h; sourceTree = "<group>"; };
 		BBD5F72D18F08A4700003F8B /* HeapLocationSender.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HeapLocationSender.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		BBF49A5118EDA7B3008047D0 /* HeapTrilaterate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HeapTrilaterate.h; sourceTree = "<group>"; };
@@ -161,8 +164,8 @@
 				BB60E81618ECE40B00F39CBC /* HeapAppDelegate.m */,
 				BB60E83F18ECE60700F39CBC /* mainViewController.h */,
 				BB60E84018ECE60700F39CBC /* mainViewController.m */,
-				BBF49A5118EDA7B3008047D0 /* HeapTrilaterate.h */,
-				BBF49A5218EDA7B3008047D0 /* HeapTrilaterate.m */,
+				BBA29B7518F86682004BA39D /* Login */,
+				BBA29B7418F862A7004BA39D /* Trilaterate */,
 				BBF5547518F0EC5500FC3660 /* LocationSender */,
 				BB60E83D18ECE4E100F39CBC /* Main.storyboard */,
 				B7A4D5F318EF9DD800BE01CC /* dealViewController.h */,
@@ -218,6 +221,24 @@
 				BB60E86918ECF48400F39CBC /* ESTBeaconUpdateInfo.h */,
 			);
 			path = Headers;
+			sourceTree = "<group>";
+		};
+		BBA29B7418F862A7004BA39D /* Trilaterate */ = {
+			isa = PBXGroup;
+			children = (
+				BBF49A5118EDA7B3008047D0 /* HeapTrilaterate.h */,
+				BBF49A5218EDA7B3008047D0 /* HeapTrilaterate.m */,
+			);
+			name = Trilaterate;
+			sourceTree = "<group>";
+		};
+		BBA29B7518F86682004BA39D /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				BBA29B7618F86693004BA39D /* HeapLoginViewController.h */,
+				BBA29B7718F86693004BA39D /* HeapLoginViewController.m */,
+			);
+			name = Login;
 			sourceTree = "<group>";
 		};
 		BBF5547518F0EC5500FC3660 /* LocationSender */ = {
@@ -331,6 +352,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BBA29B7818F86693004BA39D /* HeapLoginViewController.m in Sources */,
 				BB60E81718ECE40B00F39CBC /* HeapAppDelegate.m in Sources */,
 				B7A4D5F218EF938300BE01CC /* dealTableViewController.m in Sources */,
 				BBF49A5318EDA7B3008047D0 /* HeapTrilaterate.m in Sources */,

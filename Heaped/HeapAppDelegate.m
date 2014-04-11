@@ -23,10 +23,10 @@
     NSArray *y = @[@0, @0, @8];
     
 //  Create trilateration object.
-    HeapTrilaterate *t = [[HeapTrilaterate alloc] initWithBeacons:x y:y];
+//    HeapTrilaterate *t = [[HeapTrilaterate alloc] initWithBeacons:x y:y];
     
 //  Instance of trilateration, given distances from three beacons.
-    [t trilaterate:@[@6.4031, @4.1231, @5.6568]];
+//    [t trilaterate:@[@6.4031, @4.1231, @5.6568]];
   
     
     [[UINavigationBar appearance] setBarTintColor:[UIColor colorWithRed:220.0/255.0 green:132.0/255.0 blue:53.0/255.0 alpha:.5]];
@@ -48,12 +48,15 @@
     UITabBarItem *tabBarItem2 = [tabBar.items objectAtIndex:1];
     UITabBarItem *tabBarItem3 = [tabBar.items objectAtIndex:2];
     UITabBarItem *tabBarItem4 = [tabBar.items objectAtIndex:3];
-    
+    UITabBarItem *tabBarItem5 = [tabBar.items objectAtIndex:4];
+
 //    tabBarItem1.title = @"Store Info";
 //    tabBarItem2.title = @"Deals";
 //    tabBarItem3.title = @"Help";
-    tabBarItem4.title = @"Testing";
 
+    tabBarItem4.title = @"Log In";
+    tabBarItem5.title = @"Testing";
+    
     [tabBarItem1 setImage:[UIImage imageNamed:@"info.png"]];
     [tabBarItem2 setImage:[UIImage imageNamed:@"dollarsign.png"]];
     [tabBarItem3 setImage:[UIImage imageNamed:@"question.png"]];

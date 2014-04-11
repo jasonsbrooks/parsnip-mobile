@@ -1,9 +1,76 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5053" systemVersion="13C64" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="9PK-rj-uA2">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5053" systemVersion="12F45" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="9PK-rj-uA2">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
     <scenes>
+        <!--View Controller - Login-->
+        <scene sceneID="nfL-lV-6pH">
+            <objects>
+                <viewController id="zaT-8N-PnG" userLabel="View Controller - Login" customClass="HeapLoginViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="J6i-HH-Zrg"/>
+                        <viewControllerLayoutGuide type="bottom" id="jDY-WN-Dpg"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ZCp-OD-RoX">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Log In" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qx9-D2-EJn">
+                                <rect key="frame" x="136" y="221" width="48" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="User" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PGF-yD-5bK">
+                                <rect key="frame" x="85" y="250" width="150" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Pass" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="boc-o0-Rat">
+                                <rect key="frame" x="85" y="288" width="150" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Testing" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Gl-e0-bio">
+                                <rect key="frame" x="139" y="398" width="55" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="dpy-Db-SXd"/>
+                    <connections>
+                        <outlet property="password" destination="boc-o0-Rat" id="HCQ-Fo-r4J"/>
+                        <outlet property="testLabel" destination="0Gl-e0-bio" id="hMD-Eo-Ll1"/>
+                        <outlet property="username" destination="PGF-yD-5bK" id="XVs-01-ftT"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NAu-9c-f6f" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1098" y="1156"/>
+        </scene>
+        <!--Navigation Controller - Login-->
+        <scene sceneID="8MW-Iy-4uI">
+            <objects>
+                <navigationController definesPresentationContext="YES" id="e2Y-0Y-KMB" userLabel="Navigation Controller - Login" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="P2k-YN-cDR"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="ZOQ-No-Hy8">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="zaT-8N-PnG" kind="relationship" relationship="rootViewController" id="3NP-GO-ca5"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="llu-Sp-POZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="686" y="1156"/>
+        </scene>
         <!--Navigation Controller - Test Nav Controller-->
         <scene sceneID="Gb1-oG-3P3">
             <objects>
@@ -18,7 +85,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="P1e-BB-1o6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="670" y="1087"/>
+            <point key="canvasLocation" x="686" y="2023"/>
         </scene>
         <!--Navigation Controller - Command Nav Controller-->
         <scene sceneID="bX3-3f-PaI">
@@ -187,7 +254,7 @@
                     </connections>
                 </swipeGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1082" y="1087"/>
+            <point key="canvasLocation" x="1098" y="2023"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="CeM-tl-DH6">
@@ -204,7 +271,8 @@
                         <segue destination="uAI-xH-f1P" kind="relationship" relationship="viewControllers" id="AIf-jo-6VW"/>
                         <segue destination="sNK-2p-jcm" kind="relationship" relationship="viewControllers" id="E4e-Bq-du3"/>
                         <segue destination="IpO-Pb-Vls" kind="relationship" relationship="viewControllers" id="hNN-QU-jmG"/>
-                        <segue destination="bbZ-T2-Xqt" kind="relationship" relationship="viewControllers" id="t2X-om-WnK"/>
+                        <segue destination="e2Y-0Y-KMB" kind="relationship" relationship="viewControllers" id="LiP-Qc-oKb"/>
+                        <segue destination="bbZ-T2-Xqt" kind="relationship" relationship="viewControllers" id="nhC-at-r8q"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0wx-k7-MgA" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -321,7 +389,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vYl-Qv-GOh" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <swipeGestureRecognizer direction="left" id="ENZ-kr-Chj"/>
             </objects>
-            <point key="canvasLocation" x="1484" y="1087"/>
+            <point key="canvasLocation" x="1500" y="2023"/>
         </scene>
         <!--Navigation Controller - Deal Nav Controller-->
         <scene sceneID="jDb-Nz-tiX">
