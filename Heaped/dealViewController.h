@@ -6,9 +6,8 @@
 //  Copyright (c) 2014 Michael Zhao. All rights reserved.
 //
 
-#import "mainViewController.h"
 
-@interface dealViewController : mainViewController
+@interface dealViewController : UIViewController
 
 @property (strong, nonatomic) NSArray *dealArray;
 @property (strong, nonatomic) IBOutlet UILabel *dealTitle;

@@ -7,6 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "HeapLocationSender.h"
+#import "HeapTrilaterate.h"
 
 @interface HeapAppDelegate : UIResponder <UIApplicationDelegate>
 
@@ -15,6 +17,8 @@
 @property (readonly, strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 @property (readonly, strong, nonatomic) NSManagedObjectModel *managedObjectModel;
 @property (readonly, strong, nonatomic) NSPersistentStoreCoordinator *persistentStoreCoordinator;
+
+@property HeapLocationSender *ranger;
 
 - (void)saveContext;
 - (NSURL *)applicationDocumentsDirectory;

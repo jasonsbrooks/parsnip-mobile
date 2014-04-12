@@ -10,7 +10,8 @@
 
 @interface HeapLocationSender : NSObject
 
-- (void)makeBeaconManager;
+-(void)makeBeaconManager;
 -(void)sendData;
+
 
 @end

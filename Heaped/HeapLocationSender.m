@@ -20,12 +20,16 @@
 @property NSURLConnection *connection;
 
 @property NSInteger counter;
+@property NSMutableArray *arr;
 @end
 
 @implementation HeapLocationSender
 
+
 - (void)makeBeaconManager
 {
+    //  Initialize data array
+    self.arr = [[NSMutableArray alloc] init];
     
     // Beacon Manager discovers beacons.
     self.beaconManager = [[ESTBeaconManager alloc] init];
@@ -34,27 +38,23 @@
     
     // Set the region (could be used to identify a store).
     self.region = [[ESTBeaconRegion alloc] initWithProximityUUID:ESTIMOTE_PROXIMITY_UUID identifier:@"EstimoteSampleRegion"];
-    
+
     // Search for beacons within region.
     [self.beaconManager startRangingBeaconsInRegion:self.region];
-    
-//    [self sendData];
+
+    //    [self sendData];
 
 }
 
 -(void)beaconManager:(ESTBeaconManager *)manager
      didRangeBeacons:(NSArray *)beacons
             inRegion:(ESTBeaconRegion *)region
-{
-    // Detected a beacon
+{// Detected a beacon
     if([beacons count] > 0)
     {
-        self.counter++;
-        
-        NSLog(@"counter: %lu\n", (unsigned long)self.counter);
-        
         // Show its distance in distance0.
         self.beacon0 = [beacons objectAtIndex:0];
+        
         NSLog(@"Beacon0 Unique: %@", [self.beacon0.proximityUUID UUIDString]);
         NSLog(@"Beacon0 distance: %@", [self.beacon0.distance stringValue]);
         
@@ -67,12 +67,47 @@
             }
             else
                 NSLog(@"Couldn't find beacon 2.");
+            
         }
         else
             NSLog(@"Couldn't find beacon 1.");
+        
+        //      Append a new point to the data array.
+        
+        NSDate *now = [NSDate date];
+        NSNumber *x = [NSNumber numberWithInteger:0];
+        NSNumber *y = [NSNumber numberWithInteger:0];
+        NSNumber *z = [NSNumber numberWithInteger:0];
+
+        [self addPoint:[self makePoint:x d1:y d2:z time:now]];
+        
+        //  Increment counter, and send data every 10 detections.
+        self.counter++;
+        NSLog(@"counter: %d\n", self.counter);
+        
+        if (self.counter > 2) {
+            [self sendData];
+            self.counter = 0;
+        }
     }
     else
         NSLog(@"Couldn't find beacon 0.");
+}
+
+-(NSDictionary *)makePoint:(NSNumber *)x d1:(NSNumber *)y d2:(NSNumber *)z time:(NSDate *)t
+{
+    
+    NSString *time = [t description];
+    
+    //  point = {"x": x-coor, "y": y-coor, "t": date/time}
+    NSDictionary *point = [[NSDictionary alloc] initWithObjects:@[x, y, z, time] forKeys:@[@"d0", @"d1", @"d2", @"time"]];
+    
+    return point;
+}
+
+-(void)addPoint:(NSDictionary *)point
+{
+    [self.arr addObject:point];
 }
 
 -(NSData *)dummyData
@@ -100,24 +135,44 @@
     return data;
 }
 
+// Create a set of data as JSON object.
+-(NSData *)packData
+{
+    NSMutableDictionary *dict = [[NSMutableDictionary alloc] initWithCapacity:10];
+    [dict setObject:self.arr forKey:@"points"];
+    
+    //  Change this depending on the user.
+    NSNumber *userID = [NSNumber numberWithInteger:1];
+    [dict setObject:userID forKey:@"userID"];
+    
+    
+    NSData *data = [NSJSONSerialization dataWithJSONObject:dict options:0 error:0];
+    
+    //    NSString *dataStr = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+    //    NSLog(@"Your dummy data: %@\n", dataStr);
+    
+    return data;
+}
+
 -(void)sendData
 {
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc]
                                     initWithURL:[NSURL
-                                                 URLWithString:@"http://www.michaelhzhao.com/test.php"]];
+                                                 URLWithString:@"http://4654b395.ngrok.com/floorplan/michael"]];
     
     [request setHTTPMethod:@"POST"];
     [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
     
-    NSData *data = [self dummyData];
+    NSData *data = [self packData];
     NSString *dummyString = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-
+    
     [request setValue:[NSString stringWithFormat:@"%lu", (unsigned long)[dummyString length]] forHTTPHeaderField:@"Content-length"];
     
     [request setHTTPBody:data];
     
     self.connection = [[NSURLConnection alloc] initWithRequest:request delegate:self];
 }
+
 
 // Upon establishing connection.
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection

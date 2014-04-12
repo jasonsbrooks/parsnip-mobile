@@ -7,8 +7,7 @@
 //
 
 #import "HeapAppDelegate.h"
-#import "HeapLocationSender.h"
-#import "HeapTrilaterate.h"
+
 
 @implementation HeapAppDelegate
 
@@ -18,25 +17,43 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-//  Beacon positions:
-    NSArray *x = @[@3, @9, @4];
-    NSArray *y = @[@0, @0, @8];
+    [self createUI];
+
+    [self rangeBeacons];
     
-//  Create trilateration object.
-//    HeapTrilaterate *t = [[HeapTrilaterate alloc] initWithBeacons:x y:y];
+    return YES;
+}
+
+-(void)trilaterate
+{
+    //  Beacon positions:
+    //    NSArray *x = @[@3, @9, @4];
+    //    NSArray *y = @[@0, @0, @8];
     
-//  Instance of trilateration, given distances from three beacons.
-//    [t trilaterate:@[@6.4031, @4.1231, @5.6568]];
-  
+    //  Create trilateration object.
+    //    HeapTrilaterate *t = [[HeapTrilaterate alloc] initWithBeacons:x y:y];
     
+    //  Instance of trilateration, given distances from three beacons.
+    //    [t trilaterate:@[@6.4031, @4.1231, @5.6568]];
+    
+}
+
+-(void)rangeBeacons
+{
+    self.ranger = [[HeapLocationSender alloc] init];
+    [self.ranger makeBeaconManager];
+}
+
+-(void)createUI
+{
     [[UINavigationBar appearance] setBarTintColor:[UIColor colorWithRed:220.0/255.0 green:132.0/255.0 blue:53.0/255.0 alpha:.5]];
     
     [[UINavigationBar appearance] setTitleTextAttributes:
-        [NSDictionary dictionaryWithObjectsAndKeys:
-            [UIColor colorWithRed:245.0/255.0 green:245.0/255.0 blue:245.0/255.0 alpha:1.0] , NSForegroundColorAttributeName,
-            [UIFont fontWithName:@"HelveticaNeue-Thin" size:25.0] , NSFontAttributeName,
-        nil]
-    ];
+     [NSDictionary dictionaryWithObjectsAndKeys:
+      [UIColor colorWithRed:245.0/255.0 green:245.0/255.0 blue:245.0/255.0 alpha:1.0] , NSForegroundColorAttributeName,
+      [UIFont fontWithName:@"HelveticaNeue-Thin" size:25.0] , NSFontAttributeName,
+      nil]
+     ];
     
     [[UINavigationBar appearance] setTintColor:[UIColor colorWithRed:240.0/255.0 green: 234.0/255.0 blue:245.0/255.0 alpha:1.0]];
     
@@ -48,14 +65,13 @@
     UITabBarItem *tabBarItem2 = [tabBar.items objectAtIndex:1];
     UITabBarItem *tabBarItem3 = [tabBar.items objectAtIndex:2];
     UITabBarItem *tabBarItem4 = [tabBar.items objectAtIndex:3];
-    UITabBarItem *tabBarItem5 = [tabBar.items objectAtIndex:4];
 
-//    tabBarItem1.title = @"Store Info";
-//    tabBarItem2.title = @"Deals";
-//    tabBarItem3.title = @"Help";
-
+    
+    //    tabBarItem1.title = @"Store Info";
+    //    tabBarItem2.title = @"Deals";
+    //    tabBarItem3.title = @"Help";
+    
     tabBarItem4.title = @"Log In";
-    tabBarItem5.title = @"Testing";
     
     [tabBarItem1 setImage:[UIImage imageNamed:@"info.png"]];
     [tabBarItem2 setImage:[UIImage imageNamed:@"dollarsign.png"]];
@@ -65,9 +81,8 @@
     
     [[UITabBar appearance] setTintColor:[UIColor colorWithRed:220.0/255.0 green:132.0/255.0 blue:53.0/255.0 alpha:.8]];
     
-//    [tabBarItem4 setFinishedSelectedImage:[UIImage imageNamed:@"settings_selected.png"] withFinishedUnselectedImage:[UIImage imageNamed:@"settings.png"]];
-    
-    return YES;
+    //    [tabBarItem4 setFinishedSelectedImage:[UIImage imageNamed:@"settings_selected.png"] withFinishedUnselectedImage:[UIImage imageNamed:@"settings.png"]];
+
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application

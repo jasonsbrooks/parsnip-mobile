@@ -27,7 +27,6 @@
 		BB60E82E18ECE40B00F39CBC /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = BB60E82C18ECE40B00F39CBC /* InfoPlist.strings */; };
 		BB60E83018ECE40B00F39CBC /* HeapedTests.m in Sources */ = {isa = PBXBuildFile; fileRef = BB60E82F18ECE40B00F39CBC /* HeapedTests.m */; };
 		BB60E83E18ECE4E100F39CBC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BB60E83D18ECE4E100F39CBC /* Main.storyboard */; };
-		BB60E84118ECE60700F39CBC /* mainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BB60E84018ECE60700F39CBC /* mainViewController.m */; };
 		BB60E84A18ECEBA600F39CBC /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB60E84918ECEBA600F39CBC /* CoreBluetooth.framework */; };
 		BB60E84C18ECEBB300F39CBC /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB60E84B18ECEBB300F39CBC /* CoreLocation.framework */; };
 		BB60E85918ECF32400F39CBC /* libEstimoteSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BB60E85818ECF32400F39CBC /* libEstimoteSDK.a */; };
@@ -73,8 +72,6 @@
 		BB60E82D18ECE40B00F39CBC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		BB60E82F18ECE40B00F39CBC /* HeapedTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HeapedTests.m; sourceTree = "<group>"; };
 		BB60E83D18ECE4E100F39CBC /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
-		BB60E83F18ECE60700F39CBC /* mainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mainViewController.h; sourceTree = "<group>"; };
-		BB60E84018ECE60700F39CBC /* mainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = mainViewController.m; sourceTree = "<group>"; };
 		BB60E84918ECEBA600F39CBC /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
 		BB60E84B18ECEBB300F39CBC /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		BB60E85818ECF32400F39CBC /* libEstimoteSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libEstimoteSDK.a; sourceTree = "<group>"; };
@@ -122,6 +119,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BB24C63918F9ED960074AA11 /* Deal */ = {
+			isa = PBXGroup;
+			children = (
+				B7A4D5F318EF9DD800BE01CC /* dealViewController.h */,
+				B7A4D5F418EF9DD800BE01CC /* dealViewController.m */,
+				B7A4D5F518EF9DD800BE01CC /* dealViewController.xib */,
+				B7A4D5F018EF938300BE01CC /* dealTableViewController.h */,
+				B7A4D5F118EF938300BE01CC /* dealTableViewController.m */,
+			);
+			name = Deal;
+			sourceTree = "<group>";
+		};
 		BB60E7F818ECE40B00F39CBC = {
 			isa = PBXGroup;
 			children = (
@@ -162,17 +171,11 @@
 			children = (
 				BB60E81518ECE40B00F39CBC /* HeapAppDelegate.h */,
 				BB60E81618ECE40B00F39CBC /* HeapAppDelegate.m */,
-				BB60E83F18ECE60700F39CBC /* mainViewController.h */,
-				BB60E84018ECE60700F39CBC /* mainViewController.m */,
+				BB60E83D18ECE4E100F39CBC /* Main.storyboard */,
 				BBA29B7518F86682004BA39D /* Login */,
 				BBA29B7418F862A7004BA39D /* Trilaterate */,
 				BBF5547518F0EC5500FC3660 /* LocationSender */,
-				BB60E83D18ECE4E100F39CBC /* Main.storyboard */,
-				B7A4D5F318EF9DD800BE01CC /* dealViewController.h */,
-				B7A4D5F418EF9DD800BE01CC /* dealViewController.m */,
-				B7A4D5F518EF9DD800BE01CC /* dealViewController.xib */,
-				B7A4D5F018EF938300BE01CC /* dealTableViewController.h */,
-				B7A4D5F118EF938300BE01CC /* dealTableViewController.m */,
+				BB24C63918F9ED960074AA11 /* Deal */,
 				BB60E86418ECF48400F39CBC /* Headers */,
 				BB60E81B18ECE40B00F39CBC /* Images.xcassets */,
 				BB60E81818ECE40B00F39CBC /* Heaped.xcdatamodeld */,
@@ -359,7 +362,6 @@
 				B7A4D5F618EF9DD800BE01CC /* dealViewController.m in Sources */,
 				BB60E81318ECE40B00F39CBC /* main.m in Sources */,
 				BB60E81A18ECE40B00F39CBC /* Heaped.xcdatamodeld in Sources */,
-				BB60E84118ECE60700F39CBC /* mainViewController.m in Sources */,
 				BBD5F72E18F08A4700003F8B /* HeapLocationSender.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
