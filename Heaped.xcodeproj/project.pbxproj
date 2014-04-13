@@ -11,6 +11,7 @@
 		B7A4D5F218EF938300BE01CC /* dealTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B7A4D5F118EF938300BE01CC /* dealTableViewController.m */; };
 		B7A4D5F618EF9DD800BE01CC /* dealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B7A4D5F418EF9DD800BE01CC /* dealViewController.m */; };
 		B7A4D5F718EF9DD800BE01CC /* dealViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B7A4D5F518EF9DD800BE01CC /* dealViewController.xib */; };
+		BB0E50C418FA425600085DEE /* HeapModBeacon.m in Sources */ = {isa = PBXBuildFile; fileRef = BB0E50C318FA425600085DEE /* HeapModBeacon.m */; };
 		BB60E80518ECE40B00F39CBC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB60E80418ECE40B00F39CBC /* Foundation.framework */; };
 		BB60E80718ECE40B00F39CBC /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB60E80618ECE40B00F39CBC /* CoreGraphics.framework */; };
 		BB60E80918ECE40B00F39CBC /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB60E80818ECE40B00F39CBC /* UIKit.framework */; };
@@ -53,6 +54,8 @@
 		B7A4D5F318EF9DD800BE01CC /* dealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = dealViewController.h; sourceTree = "<group>"; };
 		B7A4D5F418EF9DD800BE01CC /* dealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = dealViewController.m; sourceTree = "<group>"; };
 		B7A4D5F518EF9DD800BE01CC /* dealViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = dealViewController.xib; sourceTree = "<group>"; };
+		BB0E50C218FA425600085DEE /* HeapModBeacon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HeapModBeacon.h; sourceTree = "<group>"; };
+		BB0E50C318FA425600085DEE /* HeapModBeacon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HeapModBeacon.m; sourceTree = "<group>"; };
 		BB60E80118ECE40B00F39CBC /* Heaped.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Heaped.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB60E80418ECE40B00F39CBC /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		BB60E80618ECE40B00F39CBC /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -119,6 +122,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BB0E50C118FA423C00085DEE /* ModBeacons */ = {
+			isa = PBXGroup;
+			children = (
+				BB0E50C218FA425600085DEE /* HeapModBeacon.h */,
+				BB0E50C318FA425600085DEE /* HeapModBeacon.m */,
+			);
+			name = ModBeacons;
+			sourceTree = "<group>";
+		};
 		BB24C63918F9ED960074AA11 /* Deal */ = {
 			isa = PBXGroup;
 			children = (
@@ -172,11 +184,12 @@
 				BB60E81518ECE40B00F39CBC /* HeapAppDelegate.h */,
 				BB60E81618ECE40B00F39CBC /* HeapAppDelegate.m */,
 				BB60E83D18ECE4E100F39CBC /* Main.storyboard */,
+				BB0E50C118FA423C00085DEE /* ModBeacons */,
+				BBF5547518F0EC5500FC3660 /* LocationSender */,
 				BBA29B7518F86682004BA39D /* Login */,
 				BBA29B7418F862A7004BA39D /* Trilaterate */,
-				BBF5547518F0EC5500FC3660 /* LocationSender */,
 				BB24C63918F9ED960074AA11 /* Deal */,
-				BB60E86418ECF48400F39CBC /* Headers */,
+				BB60E86418ECF48400F39CBC /* BeaconHeaders */,
 				BB60E81B18ECE40B00F39CBC /* Images.xcassets */,
 				BB60E81818ECE40B00F39CBC /* Heaped.xcdatamodeld */,
 				BB60E80D18ECE40B00F39CBC /* Supporting Files */,
@@ -214,7 +227,7 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		BB60E86418ECF48400F39CBC /* Headers */ = {
+		BB60E86418ECF48400F39CBC /* BeaconHeaders */ = {
 			isa = PBXGroup;
 			children = (
 				BB60E86518ECF48400F39CBC /* ESTBeacon.h */,
@@ -223,6 +236,7 @@
 				BB60E86818ECF48400F39CBC /* ESTBeaconRegion.h */,
 				BB60E86918ECF48400F39CBC /* ESTBeaconUpdateInfo.h */,
 			);
+			name = BeaconHeaders;
 			path = Headers;
 			sourceTree = "<group>";
 		};
@@ -362,6 +376,7 @@
 				B7A4D5F618EF9DD800BE01CC /* dealViewController.m in Sources */,
 				BB60E81318ECE40B00F39CBC /* main.m in Sources */,
 				BB60E81A18ECE40B00F39CBC /* Heaped.xcdatamodeld in Sources */,
+				BB0E50C418FA425600085DEE /* HeapModBeacon.m in Sources */,
 				BBD5F72E18F08A4700003F8B /* HeapLocationSender.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

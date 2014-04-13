@@ -17,6 +17,10 @@
 @property ESTBeacon *beacon1;
 @property ESTBeacon *beacon2;
 
+@property NSNumber *d0;
+@property NSNumber *d1;
+@property NSNumber *d2;
+
 @property NSURLConnection *connection;
 
 @property NSInteger counter;
@@ -25,6 +29,16 @@
 
 @implementation HeapLocationSender
 
+//  TODO: Complete the function to relay d0, d1, d2 to the notification center.
+-(void)sendNotification
+{
+    NSDictionary *dataDict = [NSDictionary dictionaryWithObjects:@[@0, @1.24] forKeys:@[@"beaconID", @"distance"]];
+    
+    [[NSNotificationCenter defaultCenter]
+        postNotificationName:@"distanceUpdate"
+        object:self
+        userInfo:dataDict];
+}
 
 - (void)makeBeaconManager
 {
@@ -50,13 +64,18 @@
      didRangeBeacons:(NSArray *)beacons
             inRegion:(ESTBeaconRegion *)region
 {// Detected a beacon
+
+    //    Send a notification of the new distances
+    
+    [self sendNotification];
+    
     if([beacons count] > 0)
     {
         // Show its distance in distance0.
         self.beacon0 = [beacons objectAtIndex:0];
         
-        NSLog(@"Beacon0 Unique: %@", [self.beacon0.proximityUUID UUIDString]);
-        NSLog(@"Beacon0 distance: %@", [self.beacon0.distance stringValue]);
+//        NSLog(@"Beacon0 Unique: %@", [self.beacon0.proximityUUID UUIDString]);
+//        NSLog(@"Beacon0 distance: %@", [self.beacon0.distance stringValue]);
         
         // If more than 1 beacon, show its distance as well.
         if([beacons count] > 1) {
@@ -79,11 +98,12 @@
         NSNumber *y = [NSNumber numberWithInteger:0];
         NSNumber *z = [NSNumber numberWithInteger:0];
 
+//      Make sure to clear the array before sending new data.
         [self addPoint:[self makePoint:x d1:y d2:z time:now]];
         
         //  Increment counter, and send data every 10 detections.
         self.counter++;
-        NSLog(@"counter: %d\n", self.counter);
+//        NSLog(@"counter: %d\n", self.counter);
         
         if (self.counter > 2) {
             [self sendData];
@@ -158,7 +178,7 @@
 {
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc]
                                     initWithURL:[NSURL
-                                                 URLWithString:@"http://4654b395.ngrok.com/floorplan/michael"]];
+                                                 URLWithString:@"http://www.michaelhzhao.com/test.php"]];
     
     [request setHTTPMethod:@"POST"];
     [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];

@@ -27,7 +27,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
+    [self receiveDistanceUpdates];
     // need to pull dynamically from server, maybe just once and then load from local database
     
     self.title = @"Heaped Deals";
@@ -73,6 +73,24 @@
     cell.textLabel.text = entry;
     cell.textLabel.font = [UIFont fontWithName:@"HelveticaNeue-Light" size:16.0];
     return cell;
+}
+
+#pragma mark - Notifications
+
+-(void)receiveDistanceUpdates
+{
+    // Set up notification center for receiving distance updates from the beacons.
+    // Might want to put this method in viewDidAppear for for efficient deallocation.
+    [[NSNotificationCenter defaultCenter]
+     addObserver:self    // Wants to know when update happens
+     selector:@selector(handleDistanceUpdate:)  // Method that gets called when notification happens.
+     name:@"distanceUpdate"   // Title of notification.
+     object:nil];
+}
+
+-(void)handleDistanceUpdate:(NSNotification *)note
+{
+    NSLog(@"Detected distance update");
 }
 
 /*

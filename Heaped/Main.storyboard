@@ -89,10 +89,10 @@
             </objects>
             <point key="canvasLocation" x="670" y="410"/>
         </scene>
-        <!--Main View Controller - Commands-->
+        <!--View Controller - Commands-->
         <scene sceneID="2IY-6a-Xr6">
             <objects>
-                <viewController title="Commands" id="aaT-Yc-Gny" customClass="mainViewController" sceneMemberID="viewController">
+                <viewController title="Commands" id="aaT-Yc-Gny" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="OfP-O4-HKE"/>
                         <viewControllerLayoutGuide type="bottom" id="Xs0-CM-ihe"/>
@@ -148,10 +148,10 @@
             </objects>
             <point key="canvasLocation" x="670" y="-977"/>
         </scene>
-        <!--Main View Controller - Store Info-->
+        <!--View Controller - Store Info-->
         <scene sceneID="CEH-Be-aGZ">
             <objects>
-                <viewController id="6Gj-sw-3dF" customClass="mainViewController" sceneMemberID="viewController">
+                <viewController id="6Gj-sw-3dF" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="szC-r5-mQi"/>
                         <viewControllerLayoutGuide type="bottom" id="Osl-JL-DZj"/>
@@ -229,10 +229,10 @@
             </objects>
             <point key="canvasLocation" x="670" y="-265"/>
         </scene>
-        <!--Main View Controller - All Deals-->
+        <!--View Controller - All Deals-->
         <scene sceneID="z7D-6h-yvk">
             <objects>
-                <viewController id="W86-z4-cQT" customClass="mainViewController" sceneMemberID="viewController">
+                <viewController id="W86-z4-cQT" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="TIU-bV-3Oq"/>
                         <viewControllerLayoutGuide type="bottom" id="anV-G1-tx7"/>
