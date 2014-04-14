@@ -8,7 +8,6 @@
 
 #import "HeapAppDelegate.h"
 
-
 @implementation HeapAppDelegate
 
 @synthesize managedObjectContext = _managedObjectContext;
@@ -22,26 +21,6 @@
     [self rangeBeacons];
     
     return YES;
-}
-
--(void)trilaterate
-{
-    //  Beacon positions:
-    //    NSArray *x = @[@3, @9, @4];
-    //    NSArray *y = @[@0, @0, @8];
-    
-    //  Create trilateration object.
-    //    HeapTrilaterate *t = [[HeapTrilaterate alloc] initWithBeacons:x y:y];
-    
-    //  Instance of trilateration, given distances from three beacons.
-    //    [t trilaterate:@[@6.4031, @4.1231, @5.6568]];
-    
-}
-
--(void)rangeBeacons
-{
-    self.ranger = [[HeapLocationSender alloc] init];
-    [self.ranger makeBeaconManager];
 }
 
 -(void)createUI
@@ -83,6 +62,26 @@
     
     //    [tabBarItem4 setFinishedSelectedImage:[UIImage imageNamed:@"settings_selected.png"] withFinishedUnselectedImage:[UIImage imageNamed:@"settings.png"]];
 
+}
+
+-(void)rangeBeacons
+{
+    self.ranger = [[HeapLocationSender alloc] init];
+    [self.ranger makeBeaconManager];
+}
+
+-(void)trilaterate
+{
+    //  Beacon positions:
+    //    NSArray *x = @[@3, @9, @4];
+    //    NSArray *y = @[@0, @0, @8];
+    
+    //  Create trilateration object.
+    //    HeapTrilaterate *t = [[HeapTrilaterate alloc] initWithBeacons:x y:y];
+    
+    //  Instance of trilateration, given distances from three beacons.
+    //    [t trilaterate:@[@6.4031, @4.1231, @5.6568]];
+    
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application
