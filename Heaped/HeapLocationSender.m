@@ -206,15 +206,15 @@
 {
 }
 
-// Handles response data from HTTP request.
+// Handles response data from HTTP request for minor information.
 -(void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data
 {
-   
+//   Handle case where beacons haven't been stored in database yet.
 }
 
 // Handles response metadata?
 - (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSHTTPURLResponse *)response
 {
-
+    
 }
 @end
