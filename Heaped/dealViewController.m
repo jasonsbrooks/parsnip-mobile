@@ -26,6 +26,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
     // Do any additional setup after loading the view from its nib.
     _dealTitle.text = _dealArray[0];
     _dealTitle.font = [UIFont fontWithName:@"HelveticaNeue" size:20.0];
@@ -39,10 +40,16 @@
     _dealBG.image = [UIImage imageNamed:_dealArray[3]];
 }
 
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
+// In dealloc, remove the notification receiver.
+-(void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
 @end
