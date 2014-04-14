@@ -7,7 +7,7 @@
 //
 
 #import "HeapLocationSender.h"
-#import "HeapSendDataDelegate.h"
+#import "HeapSendDistDataDelegate.h"
 #import "ESTBeaconManager.h"
 #import "ESTBeaconRegion.h"
 
@@ -61,15 +61,13 @@
 
     // Search for beacons within region.
     [self.beaconManager startRangingBeaconsInRegion:self.region];
-
-    //    [self sendData];
-
 }
 
 -(void)beaconManager:(ESTBeaconManager *)manager
      didRangeBeacons:(NSArray *)beacons
             inRegion:(ESTBeaconRegion *)region
 {
+        // Must have at least 3 beacons to trilaterate.
         NSAssert([beacons count] > 2, @"Cannot find three beacons.");
     
         // Distances from beacons
@@ -77,14 +75,13 @@
         NSNumber *d1;
         NSNumber *d2;
     
-        // Show its distance in distance0.
         ESTBeacon *beacon0 = [beacons objectAtIndex:0];
         ESTBeacon *beacon1 = [beacons objectAtIndex:1];
         ESTBeacon *beacon2 = [beacons objectAtIndex:2];
         
         // If minors haven't already been established, set them.
         if (self.minor0 == NULL)
-            [self askForMinors:beacon0.minor];
+            [self getStoreInfo:beacon0.minor withStoreID:self.storeID];
 
         if (self.beacon0.minor == self.minor0)
             self.beacon0 = beacon0;
@@ -118,7 +115,7 @@
 }
 
 // Send minor value to database and ask for rest of beacon minor info.
--(void)askForMinors:(NSNumber *)minor
+-(void)getStoreInfo:(NSNumber *)minor withStoreID:(NSNumber *)storeID
 {
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc]
                                     initWithURL:[NSURL
@@ -127,9 +124,12 @@
     [request setHTTPMethod:@"POST"];
     [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
     
+    
     NSString *str = [minor stringValue];
     NSData *data = [str dataUsingEncoding:4];
     
+
+
     [request setValue:[NSString stringWithFormat:@"%lu", (unsigned long)[str length]] forHTTPHeaderField:@"Content-length"];
     
     [request setHTTPBody:data];
@@ -193,7 +193,7 @@
     [request setHTTPBody:data];
     
     // Let data delegate handle data transmission response.
-    HeapSendDataDelegate *dataDelegate = [[HeapSendDataDelegate alloc] init];
+    HeapSendDistDataDelegate *dataDelegate = [[HeapSendDistDataDelegate alloc] init];
     
     self.dataConnection = [[NSURLConnection alloc] initWithRequest:request delegate:dataDelegate];
 }

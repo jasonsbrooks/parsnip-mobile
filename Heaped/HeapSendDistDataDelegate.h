@@ -8,6 +8,6 @@
 
 #import <Foundation/Foundation.h>
 
-@interface HeapSendDataDelegate : NSObject
+@interface HeapSendDistDataDelegate : NSObject
 
 @end

@@ -6,9 +6,9 @@
 //  Copyright (c) 2014 Michael Zhao. All rights reserved.
 //
 
-#import "HeapSendDataDelegate.h"
+#import "HeapSendDistDataDelegate.h"
 
-@implementation HeapSendDataDelegate
+@implementation HeapSendDistDataDelegate
 
 // Upon establishing connection.
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection
