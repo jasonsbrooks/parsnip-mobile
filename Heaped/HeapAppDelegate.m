@@ -16,6 +16,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    
     [self createUI];
 
     [self rangeBeacons];
@@ -70,19 +71,6 @@
     [self.ranger makeBeaconManager];
 }
 
--(void)trilaterate
-{
-    //  Beacon positions:
-    //    NSArray *x = @[@3, @9, @4];
-    //    NSArray *y = @[@0, @0, @8];
-    
-    //  Create trilateration object.
-    //    HeapTrilaterate *t = [[HeapTrilaterate alloc] initWithBeacons:x y:y];
-    
-    //  Instance of trilateration, given distances from three beacons.
-    //    [t trilaterate:@[@6.4031, @4.1231, @5.6568]];
-    
-}
 
 - (void)applicationWillResignActive:(UIApplication *)application
 {
@@ -92,6 +80,20 @@
 
 - (void)applicationDidEnterBackground:(UIApplication *)application
 {
+    
+    [self rangeBeacons];
+
+    UIBackgroundTaskIdentifier bgTask = [application beginBackgroundTaskWithName:@"RANGE_BEACONS" expirationHandler:0];
+
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        
+        // Do the work associated with the task, preferably in chunks.
+        NSLog(@"SDF");
+
+        [application endBackgroundTask:bgTask];
+
+    });
+    
     // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later. 
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
 }

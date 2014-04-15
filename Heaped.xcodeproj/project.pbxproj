@@ -309,6 +309,11 @@
 				TargetAttributes = {
 					BB60E80018ECE40B00F39CBC = {
 						DevelopmentTeam = P5S97F375V;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
 					};
 					BB60E82018ECE40B00F39CBC = {
 						TestTargetID = BB60E80018ECE40B00F39CBC;

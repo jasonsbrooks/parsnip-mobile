@@ -38,6 +38,14 @@
 
 @implementation HeapLocationSender
 
+-(void)storeInfoNotification
+{
+    [[NSNotificationCenter defaultCenter]
+     postNotificationName:@"storeInfo"
+     object:self
+     userInfo:_storeInfo];
+}
+
 //  TODO: Complete the function to relay d0, d1, d2 to the notification center.
 -(void)sendNotification:(NSNumber *)d0 distance1:(NSNumber *)d1 distance2:(NSNumber *)d2
 {
@@ -85,15 +93,13 @@
                 [self getStoreInfo];
             }
 
-        [self sendData];
     
         // Increment counter, and send data every 10 detections.
         if (self.counter++ > DATA_INTERVAL) {
-
-
+            [self sendData];
+            
             // Reset variables.
             self.counter = 0;
-            self.arr = [[NSMutableArray alloc] init];
         }
 }
 
@@ -152,6 +158,7 @@
     self.dataConnection = [[NSURLConnection alloc] initWithRequest:request delegate:self];
 }
 
+// Send distances.
 -(void)sendData
 {
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc]
@@ -166,14 +173,14 @@
     if (_curMajor != nil || _curMajor != NULL)
     major = _curMajor;
     
-    NSArray *p0 = @[_beacon0.minor, _beacon0.distance];
-    NSArray *p1 = @[_beacon1.minor, _beacon1.distance];
-    NSArray *p2 = @[_beacon2.minor, _beacon2.distance];
+    NSArray *p0 = @[_beacon0.major, _beacon0.minor, _beacon0.distance];
+    NSArray *p1 = @[_beacon1.major, _beacon1.minor, _beacon1.distance];
+    NSArray *p2 = @[_beacon2.major, _beacon2.minor, _beacon2.distance];
     
     NSArray *points = @[p0, p1, p2];
     
     // minor, major values
-    NSDictionary *dataDict = [NSDictionary dictionaryWithObjects:@[points, major, @"B9407F30-F5F8-466E-AFF9-25556B57FE6D"] forKeys:@[@"points", @"major", @"UUID"]];
+    NSDictionary *dataDict = [NSDictionary dictionaryWithObjects:@[points, @"B9407F30-F5F8-466E-AFF9-25556B57FE6D"] forKeys:@[@"points", @"UUID"]];
     
     // Data to send to Jason.
     NSData *data = [NSJSONSerialization dataWithJSONObject:dataDict options:0 error:nil];
@@ -187,22 +194,6 @@
     
     // Delegate is self to set class minor variables.
     self.minorConnection = [[NSURLConnection alloc] initWithRequest:request delegate:dataDelegate];
-    
-//
-//    [request setHTTPMethod:@"POST"];
-//    [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
-//    
-//    NSData *data = [self packData];
-//    NSString *dummyString = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-//    
-//    [request setValue:[NSString stringWithFormat:@"%lu", (unsigned long)[dummyString length]] forHTTPHeaderField:@"Content-length"];
-//    
-//    [request setHTTPBody:data];
-//    
-//    // Let data delegate handle data transmission response.
-//    HeapSendDistDataDelegate *dataDelegate = [[HeapSendDistDataDelegate alloc] init];
-//    
-//    self.dataConnection = [[NSURLConnection alloc] initWithRequest:request delegate:dataDelegate];
 }
 
 
@@ -217,12 +208,8 @@
     
     NSLog(@"%@", [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]);
     
-    NSArray *beacons = [_storeInfo objectForKey:@"beacons"];
-    
-    // Set minors from the json data.
-    self.minor0 = [beacons objectAtIndex:0];
-    self.minor1 = [beacons objectAtIndex:1];
-    self.minor2 = [beacons objectAtIndex:2];
+    // Send store info to notification center.
+    [self storeInfoNotification];
 }
 
 // Upon establishing connection.
@@ -235,44 +222,3 @@
 {
 }
 @end
-
-
-
-# pragma mark - Handle data
-
-//
-//-(NSDictionary *)makePoint:(NSNumber *)x d1:(NSNumber *)y d2:(NSNumber *)z time:(NSDate *)t
-//{
-//
-//    NSString *time = [t description];
-//
-//    //  point = {"x": x-coor, "y": y-coor, "t": date/time}
-//    NSDictionary *point = [[NSDictionary alloc] initWithObjects:@[x, y, z, time] forKeys:@[@"d0", @"d1", @"d2", @"time"]];
-//
-//    return point;
-//}
-//
-//-(void)addPoint:(NSDictionary *)point
-//{
-//    [self.arr addObject:point];
-//}
-//
-//// Create a set of data as JSON object.
-//-(NSData *)packData
-//{
-//    NSMutableDictionary *dict = [[NSMutableDictionary alloc] initWithCapacity:10];
-//    [dict setObject:self.arr forKey:@"points"];
-//
-//    //  Change this depending on the user.
-//    NSNumber *userID = [NSNumber numberWithInteger:1];
-//    [dict setObject:userID forKey:@"userID"];
-//
-//
-//    NSData *data = [NSJSONSerialization dataWithJSONObject:dict options:0 error:0];
-//
-//    //    NSString *dataStr = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-//    //    NSLog(@"Your dummy data: %@\n", dataStr);
-//
-//    return data;
-//}
-

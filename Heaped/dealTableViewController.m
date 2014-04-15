@@ -84,13 +84,19 @@
     [[NSNotificationCenter defaultCenter]
      addObserver:self    // Wants to know when update happens
      selector:@selector(handleDistanceUpdate:)  // Method that gets called when notification happens.
-     name:@"distanceUpdate"   // Title of notification.
+     name:@"storeInfo"   // Title of notification.
      object:nil];
 }
 
 -(void)handleDistanceUpdate:(NSNotification *)note
 {
-    NSLog(@"Detected distance update");
+    NSLog(@"Detected storeInfo notification.");
+    
+    NSDictionary *dict = note.userInfo;
+    
+    NSString *state = [dict valueForKey:@"state"];
+    
+    NSLog(@"State: %@", state);
 }
 
 /*
