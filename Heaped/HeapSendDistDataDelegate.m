@@ -19,7 +19,7 @@
 -(void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data
 {
     NSString *dataStr = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-    NSLog(@"Received data: %@", dataStr);
+    NSLog(@"\n\nReceived data: %@\n\n", dataStr);
 }
 
 // Handles response metadata?
