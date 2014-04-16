@@ -14,6 +14,7 @@
 @synthesize managedObjectModel = _managedObjectModel;
 @synthesize persistentStoreCoordinator = _persistentStoreCoordinator;
 
+UIBackgroundTaskIdentifier bgTask;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
@@ -83,6 +84,21 @@ performFetchWithCompletionHandler: (void (^)(UIBackgroundFetchResult))completion
 
 - (void)applicationDidEnterBackground:(UIApplication *)application
 {
+    [self startBackgroundTask];
+}
+
+- (void)startBackgroundTask {
+    if(bgTask != UIBackgroundTaskInvalid){
+        [[UIApplication sharedApplication] endBackgroundTask:bgTask];
+        bgTask = UIBackgroundTaskInvalid;
+    }
+    bgTask = [[UIApplication sharedApplication] beginBackgroundTaskWithExpirationHandler:^{
+        
+        NSLog(@"your time is over");
+
+        // Restart the background task.
+        [self startBackgroundTask];
+    }];
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application
