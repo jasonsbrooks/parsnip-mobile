@@ -78,6 +78,11 @@
      didRangeBeacons:(NSArray *)beacons
             inRegion:(ESTBeaconRegion *)region
 {
+        // If we don't detect enough beacons (customer isn't in a store),
+        // then stop ranging for beacons.
+        if ([beacons count] <=2)
+            [self.beaconManager stopRangingBeaconsInRegion:self.region];
+    
         // Must have at least 3 beacons to trilaterate.
         NSAssert([beacons count] > 2, @"Cannot find three beacons.");
     
@@ -92,12 +97,11 @@
                 _curMajor = _beacon0.major;
                 [self getStoreInfo];
             }
-
     
-        // Increment counter, and send data every 10 detections.
+        // Increment counter, and send data every {DATA_INTERVAL} detections.
         if (self.counter++ > DATA_INTERVAL) {
             [self sendData];
-            
+            NSLog(@"Sending data...");
             // Reset variables.
             self.counter = 0;
         }
@@ -146,8 +150,6 @@
     [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
     
     NSDictionary *dataDict = [NSDictionary dictionaryWithObject:_curMajor forKey:@"major"];
-
-//    NSData *data = [self packData];
     NSData *data = [NSJSONSerialization dataWithJSONObject:dataDict options:0 error:nil];
     NSString *str = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
     
@@ -212,13 +214,8 @@
     [self storeInfoNotification];
 }
 
-// Upon establishing connection.
-- (void)connectionDidFinishLoading:(NSURLConnection *)connection
+-(void)dealloc
 {
-}
-
-// Handles response metadata?
-- (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSHTTPURLResponse *)response
-{
+    [self.beaconManager stopRangingBeaconsInRegion:self.region];
 }
 @end
