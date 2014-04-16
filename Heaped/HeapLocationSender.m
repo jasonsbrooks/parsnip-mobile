@@ -144,7 +144,7 @@
 {
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc]
                                     initWithURL:[NSURL
-                                                 URLWithString:@"http://2c6a70d0.ngrok.com/beacon/get_store_information"]];
+                                                 URLWithString:@"http://52f3518a.ngrok.com/beacon/get_store_information"]];
     
     [request setHTTPMethod:@"POST"];
     [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
@@ -165,7 +165,7 @@
 {
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc]
                                     initWithURL:[NSURL
-                                                 URLWithString:@"http://2c6a70d0.ngrok.com/beacon/add_coordinate_data"]];
+                                                 URLWithString:@"http://52f3518a.ngrok.com/beacon/add_coordinate_data"]];
 
     [request setHTTPMethod:@"POST"];
     [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
@@ -181,8 +181,10 @@
     
     NSArray *points = @[p0, p1, p2];
     
+    NSString *userID = [[[UIDevice currentDevice] identifierForVendor] UUIDString];
+    
     // minor, major values
-    NSDictionary *dataDict = [NSDictionary dictionaryWithObjects:@[points, @"B9407F30-F5F8-466E-AFF9-25556B57FE6D"] forKeys:@[@"points", @"UUID"]];
+    NSDictionary *dataDict = [NSDictionary dictionaryWithObjects:@[points, @"B9407F30-F5F8-466E-AFF9-25556B57FE6D", userID] forKeys:@[@"points", @"UUID", @"userID"]];
     
     // Data to send to Jason.
     NSData *data = [NSJSONSerialization dataWithJSONObject:dataDict options:0 error:nil];
