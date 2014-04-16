@@ -10,6 +10,8 @@
 
 @interface dealTableViewController : UITableViewController
 
+-(void)reloadData;
+
 @property (copy) NSMutableArray *deals;
 
 @end

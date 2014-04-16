@@ -30,6 +30,11 @@
     [self receiveDistanceUpdates];
     // need to pull dynamically from server, maybe just once and then load from local database
     
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(reloadTable:)
+                                                 name:@"storeInfo"
+                                               object:nil];
+    
     self.title = @"Heaped Deals";
     self.deals = [@[@"All pants 100% off ;)", @"Cheese biscuits only 99 cents", @"Where's Waldo?"] mutableCopy];
     
@@ -38,6 +43,15 @@
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+}
+
+- (void) reloadTable:(NSNotification *)note {
+    [self reloadData];
+}
+
+- (void)reloadData
+{
+    NSLog(@"it changed");
 }
 
 - (void)didReceiveMemoryWarning

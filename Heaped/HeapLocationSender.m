@@ -51,6 +51,8 @@
 {
     NSDictionary *dataDict = [NSDictionary dictionaryWithObjects:@[d0, d1, d2] forKeys:@[@"d0", @"d1", @"d2"]];
     
+    NSLog(@"hi");
+    
     [[NSNotificationCenter defaultCenter]
         postNotificationName:@"distanceUpdate"
         object:self
