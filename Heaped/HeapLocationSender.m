@@ -51,8 +51,6 @@
 {
     NSDictionary *dataDict = [NSDictionary dictionaryWithObjects:@[d0, d1, d2] forKeys:@[@"d0", @"d1", @"d2"]];
     
-    NSLog(@"hi");
-    
     [[NSNotificationCenter defaultCenter]
         postNotificationName:@"distanceUpdate"
         object:self
@@ -61,6 +59,7 @@
 
 - (void)makeBeaconManager
 {
+    NSLog(@"starting beacon manager");
     //  Initialize data array
     self.arr = [[NSMutableArray alloc] init];
     
@@ -69,10 +68,15 @@
     self.beaconManager.delegate = self;
     self.beaconManager.avoidUnknownStateBeacons = YES;
     
-    // Set the region (could be used to identify a store).
-    self.region = [[ESTBeaconRegion alloc] initWithProximityUUID:ESTIMOTE_PROXIMITY_UUID identifier:@"ParsnipEnterprises"];
-
-    // Search for beacons within region.
+//    // Set the region (could be used to identify a store).
+////    self.region = [[ESTBeaconRegion alloc] initWithProximityUUID:ESTIMOTE_PROXIMITY_UUID identifier:@"ParsnipEnterprises"];
+//
+//    // Search for beacons within region.
+//    [self.beaconManager startRangingBeaconsInRegion:self.region];
+    
+    self.region = [[ESTBeaconRegion alloc] initWithProximityUUID:ESTIMOTE_PROXIMITY_UUID
+                                                      identifier:@"EstimoteSampleRegion"];
+    // Start ranging beacons
     [self.beaconManager startRangingBeaconsInRegion:self.region];
 }
 
@@ -80,6 +84,7 @@
      didRangeBeacons:(NSArray *)beacons
             inRegion:(ESTBeaconRegion *)region
 {
+        NSLog(@"starting ranging");
         // If we don't detect enough beacons (customer isn't in a store),
         // then stop ranging for beacons.
         if ([beacons count] <=2)
@@ -111,6 +116,7 @@
 
 -(void)setBeacons:(ESTBeacon *)beacon0 b1:(ESTBeacon *)beacon1 b2:(ESTBeacon *)beacon2
 {
+    NSLog(@"Setting Beacons");
     // Map distances to correct beacons.
     if (beacon0.minor == _minor0 &&
         beacon1.minor == _minor1 &&
@@ -144,9 +150,10 @@
 // Send minor value to database and ask for rest of beacon minor info.
 -(void)getStoreInfo
 {
+    NSLog(@"Getting Store Info");
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc]
                                     initWithURL:[NSURL
-                                                 URLWithString:@"http://52f3518a.ngrok.com/beacon/get_store_information"]];
+                                                 URLWithString:@"http://heaped.ngrok.com/beacon/get_store_information"]];
     
     [request setHTTPMethod:@"POST"];
     [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
@@ -165,9 +172,10 @@
 // Send distances.
 -(void)sendData
 {
+    NSLog(@"Sending data");
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc]
                                     initWithURL:[NSURL
-                                                 URLWithString:@"http://52f3518a.ngrok.com/beacon/add_coordinate_data"]];
+                                                 URLWithString:@"http://heaped.ngrok.com/beacon/add_coordinate_data"]];
 
     [request setHTTPMethod:@"POST"];
     [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];

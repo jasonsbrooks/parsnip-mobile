@@ -24,7 +24,7 @@ UIBackgroundTaskIdentifier bgTask;
     [self createUI];
 
     [self rangeBeacons];
-    
+        
     return YES;
 }
 
@@ -73,6 +73,7 @@ performFetchWithCompletionHandler: (void (^)(UIBackgroundFetchResult))completion
 
 -(void)rangeBeacons
 {
+    NSLog(@"setting Beacon Manager");
     self.ranger = [[HeapLocationSender alloc] init];
     [self.ranger makeBeaconManager];
 }
