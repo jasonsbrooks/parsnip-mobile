@@ -73,7 +73,6 @@ performFetchWithCompletionHandler: (void (^)(UIBackgroundFetchResult))completion
 
 -(void)rangeBeacons
 {
-    NSLog(@"setting Beacon Manager");
     self.ranger = [[HeapLocationSender alloc] init];
     [self.ranger makeBeaconManager];
 }

@@ -40,10 +40,20 @@
 
 -(void)storeInfoNotification
 {
+    NSLog(@"firing");
+    
+    NSDictionary *swag = [NSDictionary dictionaryWithObjects:@[
+        [@[@"All pints 100% off ;)", @"Chu beescuit only 99 cents", @"Whee Waldo?"] mutableCopy],
+        [@[@"heh plz", @"wtf are those", @"there's waldo"] mutableCopy],
+        [@[@"yo", @"yo", @"yo"] mutableCopy],
+        [@[@"default", @"default", @"default"] mutableCopy],
+        @[@"yo"]]
+        forKeys: @[@"deals", @"details", @"descriptions", @"images", @"message"]];
     [[NSNotificationCenter defaultCenter]
      postNotificationName:@"storeInfo"
-     object:self
-     userInfo:_storeInfo];
+     object:nil
+//     userInfo:_storeInfo];
+     userInfo: swag];
 }
 
 //  TODO: Complete the function to relay d0, d1, d2 to the notification center.
@@ -59,23 +69,17 @@
 
 - (void)makeBeaconManager
 {
-    NSLog(@"starting beacon manager");
     //  Initialize data array
     self.arr = [[NSMutableArray alloc] init];
     
     // Beacon Manager discovers beacons.
     self.beaconManager = [[ESTBeaconManager alloc] init];
     self.beaconManager.delegate = self;
-    self.beaconManager.avoidUnknownStateBeacons = YES;
+    self.beaconManager.avoidUnknownStateBeacons = NO;
     
-//    // Set the region (could be used to identify a store).
-////    self.region = [[ESTBeaconRegion alloc] initWithProximityUUID:ESTIMOTE_PROXIMITY_UUID identifier:@"ParsnipEnterprises"];
-//
-//    // Search for beacons within region.
-//    [self.beaconManager startRangingBeaconsInRegion:self.region];
+    // Set the region (could be used to identify a store).
+    self.region = [[ESTBeaconRegion alloc] initWithProximityUUID:ESTIMOTE_PROXIMITY_UUID identifier:@"ParsnipEnterprises"];
     
-    self.region = [[ESTBeaconRegion alloc] initWithProximityUUID:ESTIMOTE_PROXIMITY_UUID
-                                                      identifier:@"EstimoteSampleRegion"];
     // Start ranging beacons
     [self.beaconManager startRangingBeaconsInRegion:self.region];
 }
@@ -84,7 +88,6 @@
      didRangeBeacons:(NSArray *)beacons
             inRegion:(ESTBeaconRegion *)region
 {
-        NSLog(@"starting ranging");
         // If we don't detect enough beacons (customer isn't in a store),
         // then stop ranging for beacons.
         if ([beacons count] <=2)
@@ -108,7 +111,6 @@
         // Increment counter, and send data every {DATA_INTERVAL} detections.
         if (self.counter++ > DATA_INTERVAL) {
             [self sendData];
-            NSLog(@"Sending data...");
             // Reset variables.
             self.counter = 0;
         }
@@ -116,7 +118,6 @@
 
 -(void)setBeacons:(ESTBeacon *)beacon0 b1:(ESTBeacon *)beacon1 b2:(ESTBeacon *)beacon2
 {
-    NSLog(@"Setting Beacons");
     // Map distances to correct beacons.
     if (beacon0.minor == _minor0 &&
         beacon1.minor == _minor1 &&
@@ -150,7 +151,6 @@
 // Send minor value to database and ask for rest of beacon minor info.
 -(void)getStoreInfo
 {
-    NSLog(@"Getting Store Info");
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc]
                                     initWithURL:[NSURL
                                                  URLWithString:@"http://heaped.ngrok.com/beacon/get_store_information"]];
@@ -172,7 +172,6 @@
 // Send distances.
 -(void)sendData
 {
-    NSLog(@"Sending data");
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc]
                                     initWithURL:[NSURL
                                                  URLWithString:@"http://heaped.ngrok.com/beacon/add_coordinate_data"]];

@@ -15,6 +15,8 @@
 
 @implementation dealTableViewController
 
+NSDictionary *dealsDict;
+
 - (id)initWithStyle:(UITableViewStyle)style
 {
     self = [super initWithStyle:style];
@@ -27,31 +29,24 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [self receiveDistanceUpdates];
-    // need to pull dynamically from server, maybe just once and then load from local database
+    [self receiveDealUpdates];
     
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(reloadTable:)
-                                                 name:@"storeInfo"
-                                               object:nil];
+    if (dealsDict == NULL) {
+    dealsDict = [NSDictionary dictionaryWithObjects:@[
+        [@[@"All pants 100% off ;)", @"Cheese biscuits only 99 cents", @"Where's Waldo?"] mutableCopy],
+        [@[@"pants plz", @"wtf are those", @"there's waldo"] mutableCopy],
+        [@[@"yo", @"yo", @"yo"] mutableCopy],
+        [@[@"default", @"default", @"default"] mutableCopy]]
+        forKeys:@[@"deals", @"details", @"descriptions", @"images"]];
+    }
     
-    self.title = @"Heaped Deals";
-    self.deals = [@[@"All pants 100% off ;)", @"Cheese biscuits only 99 cents", @"Where's Waldo?"] mutableCopy];
+    self.deals = dealsDict;
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-}
-
-- (void) reloadTable:(NSNotification *)note {
-    [self reloadData];
-}
-
-- (void)reloadData
-{
-    NSLog(@"it changed");
 }
 
 - (void)didReceiveMemoryWarning
@@ -71,7 +66,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return self.deals.count;
+    return [[self.deals objectForKey: @"deals"] count];
 }
 
 
@@ -82,7 +77,7 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:reuseIdentifier forIndexPath:indexPath];
     
     NSString * entry;
-    entry = self.deals[indexPath.row];
+    entry = self.deals[@"deals"][indexPath.row];
     
     cell.textLabel.text = entry;
     cell.textLabel.font = [UIFont fontWithName:@"HelveticaNeue-Light" size:16.0];
@@ -91,26 +86,29 @@
 
 #pragma mark - Notifications
 
--(void)receiveDistanceUpdates
+-(void)receiveDealUpdates
 {
     // Set up notification center for receiving distance updates from the beacons.
     // Might want to put this method in viewDidAppear for for efficient deallocation.
     [[NSNotificationCenter defaultCenter]
      addObserver:self    // Wants to know when update happens
-     selector:@selector(handleDistanceUpdate:)  // Method that gets called when notification happens.
+     selector:@selector(handleDealUpdate:)  // Method that gets called when notification happens.
      name:@"storeInfo"   // Title of notification.
      object:nil];
 }
 
--(void)handleDistanceUpdate:(NSNotification *)note
+-(void)handleDealUpdate:(NSNotification *)note
 {
     NSLog(@"Detected storeInfo notification.");
     
-    NSDictionary *dict = note.userInfo;
+    dealsDict = note.userInfo;
     
-    NSString *state = [dict valueForKey:@"state"];
+    NSString *state = [dealsDict valueForKey:@"state"];
+    
+//    [self viewDidLoad];
     
     NSLog(@"State: %@", state);
+    NSLog(@"Dict: %@", dealsDict[@"message"]);
 }
 
 /*
@@ -168,7 +166,9 @@
         
         // access db with row
         
-        dealDetailViewController.dealArray = @[self.deals[row], @"some blurb", @"loooong description of deal and shit" , @"image_src"];
+        dealDetailViewController.dealArray = @[self.deals[@"deals"][row], self.deals[@"details"][row],
+            self.deals[@"descriptions"][row],
+            self.deals[@"images"][row]];
     }
     
 }
