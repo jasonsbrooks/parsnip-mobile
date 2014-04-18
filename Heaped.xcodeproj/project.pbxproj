@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B73666FB19009B790009CB1C /* HeapInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B73666FA19009B790009CB1C /* HeapInfoViewController.m */; };
 		B7A4D5EF18EF82D700BE01CC /* todo in Resources */ = {isa = PBXBuildFile; fileRef = B7A4D5EE18EF82D700BE01CC /* todo */; };
 		B7A4D5F218EF938300BE01CC /* dealTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B7A4D5F118EF938300BE01CC /* dealTableViewController.m */; };
 		B7A4D5F618EF9DD800BE01CC /* dealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B7A4D5F418EF9DD800BE01CC /* dealViewController.m */; };
@@ -47,6 +48,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B73666F919009B790009CB1C /* HeapInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HeapInfoViewController.h; sourceTree = "<group>"; };
+		B73666FA19009B790009CB1C /* HeapInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HeapInfoViewController.m; sourceTree = "<group>"; };
 		B7A4D5EE18EF82D700BE01CC /* todo */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = todo; sourceTree = "<group>"; };
 		B7A4D5F018EF938300BE01CC /* dealTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = dealTableViewController.h; sourceTree = "<group>"; };
 		B7A4D5F118EF938300BE01CC /* dealTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = dealTableViewController.m; sourceTree = "<group>"; };
@@ -119,6 +122,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B73666FD19009B930009CB1C /* Info */ = {
+			isa = PBXGroup;
+			children = (
+				B73666F919009B790009CB1C /* HeapInfoViewController.h */,
+				B73666FA19009B790009CB1C /* HeapInfoViewController.m */,
+			);
+			name = Info;
+			sourceTree = "<group>";
+		};
 		BB24C63918F9ED960074AA11 /* Deal */ = {
 			isa = PBXGroup;
 			children = (
@@ -172,6 +184,7 @@
 				BB60E81518ECE40B00F39CBC /* HeapAppDelegate.h */,
 				BB60E81618ECE40B00F39CBC /* HeapAppDelegate.m */,
 				BB60E83D18ECE4E100F39CBC /* Main.storyboard */,
+				B73666FD19009B930009CB1C /* Info */,
 				BBF5547518F0EC5500FC3660 /* LocationSender */,
 				BBA29B7418F862A7004BA39D /* Trilaterate */,
 				BB24C63918F9ED960074AA11 /* Deal */,
@@ -359,6 +372,7 @@
 				B7A4D5F618EF9DD800BE01CC /* dealViewController.m in Sources */,
 				BB60E81318ECE40B00F39CBC /* main.m in Sources */,
 				BBF6B2C918FB9034009CFB1C /* HeapSendDistDataDelegate.m in Sources */,
+				B73666FB19009B790009CB1C /* HeapInfoViewController.m in Sources */,
 				BB60E81A18ECE40B00F39CBC /* Heaped.xcdatamodeld in Sources */,
 				BBD5F72E18F08A4700003F8B /* HeapLocationSender.m in Sources */,
 			);

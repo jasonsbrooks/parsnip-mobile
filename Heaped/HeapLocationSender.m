@@ -47,8 +47,9 @@
         [@[@"heh plz", @"wtf are those", @"there's waldo"] mutableCopy],
         [@[@"yo", @"yo", @"yo"] mutableCopy],
         [@[@"default", @"default", @"default"] mutableCopy],
-        @[@"yo"]]
-        forKeys: @[@"deals", @"details", @"descriptions", @"images", @"message"]];
+        @"yo",
+        @"yooo"]
+        forKeys: @[@"deals", @"details", @"descriptions", @"images", @"message", @"storeName"]];
     [[NSNotificationCenter defaultCenter]
      postNotificationName:@"storeInfo"
      object:nil
