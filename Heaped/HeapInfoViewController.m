@@ -42,7 +42,7 @@ NSDictionary *infoDict;
         _Label5.text = @"";
         _Label6.text = @"";
     } else {
-        _StoreTitle.text = infoDict[@"storeName"];
+        _StoreTitle.text = infoDict[@"name"];
         _Label1.text = @"";
         _Label2.text = @"";
         _Label3.text = @"Success!";
@@ -76,6 +76,7 @@ NSDictionary *infoDict;
 {
     NSLog(@"Detected storeInfo notification.");
     
+//    infoDict = note.userInfo[@"information"];
     infoDict = note.userInfo;
     
     //    NSString *state = [dealsDict valueForKey:@"state"];

@@ -25,6 +25,7 @@
 @property NSNumber *minor0;
 @property NSNumber *minor1;
 @property NSNumber *minor2;
+@property int numberBeacons;
 
 @property NSURLConnection *minorConnection;
 @property NSURLConnection *dataConnection;
@@ -41,20 +42,11 @@
 -(void)storeInfoNotification
 {
     NSLog(@"firing");
-    
-    NSDictionary *swag = [NSDictionary dictionaryWithObjects:@[
-        [@[@"All pints 100% off ;)", @"Chu beescuit only 99 cents", @"Whee Waldo?"] mutableCopy],
-        [@[@"heh plz", @"wtf are those", @"there's waldo"] mutableCopy],
-        [@[@"yo", @"yo", @"yo"] mutableCopy],
-        [@[@"default", @"default", @"default"] mutableCopy],
-        @"yo",
-        @"yooo"]
-        forKeys: @[@"deals", @"details", @"descriptions", @"images", @"message", @"storeName"]];
+
     [[NSNotificationCenter defaultCenter]
      postNotificationName:@"storeInfo"
      object:nil
-//     userInfo:_storeInfo];
-     userInfo: swag];
+     userInfo:_storeInfo];
 }
 
 //  TODO: Complete the function to relay d0, d1, d2 to the notification center.
@@ -89,17 +81,23 @@
      didRangeBeacons:(NSArray *)beacons
             inRegion:(ESTBeaconRegion *)region
 {
+    
+        _numberBeacons = (int) [beacons count];
+        NSLog(@"%d", _numberBeacons);
         // If we don't detect enough beacons (customer isn't in a store),
         // then stop ranging for beacons.
-        if ([beacons count] <=2)
-            [self.beaconManager stopRangingBeaconsInRegion:self.region];
-    
+//        if ([beacons count] <=2){
+//            [self.beaconManager stopRangingBeaconsInRegion:self.region];
+//            NSLog(@"wtf");
+//        }
         // Must have at least 3 beacons to trilaterate.
-        NSAssert([beacons count] > 2, @"Cannot find three beacons.");
-    
-        _beacon0 = [beacons objectAtIndex:0];
-        _beacon1 = [beacons objectAtIndex:1];
-        _beacon2 = [beacons objectAtIndex:2];
+//        NSAssert([beacons count] > 2, @"Cannot find three beacons.");
+        if (_numberBeacons > 0)
+            _beacon0 = [beacons objectAtIndex:0];
+        if (_numberBeacons > 1)
+            _beacon1 = [beacons objectAtIndex:1];
+        if (_numberBeacons > 2)
+            _beacon2 = [beacons objectAtIndex:2];
     
         // Only ask for store information if user is new to store (major),
         // or store changes.
@@ -110,7 +108,7 @@
             }
     
         // Increment counter, and send data every {DATA_INTERVAL} detections.
-        if (self.counter++ > DATA_INTERVAL) {
+        if (self.counter++ > DATA_INTERVAL && _numberBeacons >= 2) {
             [self sendData];
             // Reset variables.
             self.counter = 0;
@@ -119,34 +117,57 @@
 
 -(void)setBeacons:(ESTBeacon *)beacon0 b1:(ESTBeacon *)beacon1 b2:(ESTBeacon *)beacon2
 {
+    NSLog(@"setBeacons");
     // Map distances to correct beacons.
-    if (beacon0.minor == _minor0 &&
-        beacon1.minor == _minor1 &&
-        beacon2.minor == _minor2){
-        _beacon0 = beacon0; _beacon1 = beacon1; _beacon2 = beacon2;
-    } else if (beacon0.minor == _minor0 &&
-               beacon1.minor == _minor2 &&
-               beacon2.minor == _minor1){
-        _beacon0 = beacon0; _beacon1 = beacon2; _beacon2 = beacon1;
-        
-    } else if (beacon0.minor == _minor1 &&
-               beacon1.minor == _minor0 &&
-               beacon2.minor == _minor2){
-        _beacon0 = beacon1; _beacon1 = beacon0; _beacon2 = beacon2;
-        
-    } else if (beacon0.minor == _minor1 &&
-               beacon1.minor == _minor2 &&
-               beacon2.minor == _minor0){
-        _beacon0 = beacon2; _beacon1 = beacon0; _beacon2 = beacon1;
-    } else if (beacon0.minor == _minor2 &&
-               beacon1.minor == _minor0 &&
-               beacon2.minor == _minor1){
-        _beacon0 = beacon1; _beacon1 = beacon2; _beacon2 = beacon0;
-    } else if (beacon0.minor == _minor2 &&
-               beacon1.minor == _minor1 &&
-               beacon2.minor == _minor0){
-        _beacon0 = beacon2; _beacon1 = beacon1; _beacon2 = beacon0;
-    }
+    if (beacon0.minor == _minor0)
+        _beacon0 = beacon0;
+    else if (beacon0.minor == _minor1)
+        _beacon0 = beacon1;
+    else if (beacon0.minor == _minor2)
+        _beacon0 = beacon2;
+    
+    if (beacon1.minor == _minor0)
+        _beacon0 = beacon0;
+    else if (beacon1.minor == _minor1)
+        _beacon0 = beacon1;
+    else if (beacon1.minor == _minor2)
+        _beacon0 = beacon2;
+    
+    if (beacon2.minor == _minor0)
+        _beacon0 = beacon0;
+    else if (beacon2.minor == _minor1)
+        _beacon0 = beacon1;
+    else if (beacon2.minor == _minor2)
+        _beacon0 = beacon2;
+    
+//
+//    if (beacon0.minor == _minor0 &&
+//        beacon1.minor == _minor1 &&
+//        beacon2.minor == _minor2){
+//        _beacon0 = beacon0; _beacon1 = beacon1; _beacon2 = beacon2;
+//    } else if (beacon0.minor == _minor0 &&
+//               beacon1.minor == _minor2 &&
+//               beacon2.minor == _minor1){
+//        _beacon0 = beacon0; _beacon1 = beacon2; _beacon2 = beacon1;
+//        
+//    } else if (beacon0.minor == _minor1 &&
+//               beacon1.minor == _minor0 &&
+//               beacon2.minor == _minor2){
+//        _beacon0 = beacon1; _beacon1 = beacon0; _beacon2 = beacon2;
+//        
+//    } else if (beacon0.minor == _minor1 &&
+//               beacon1.minor == _minor2 &&
+//               beacon2.minor == _minor0){
+//        _beacon0 = beacon2; _beacon1 = beacon0; _beacon2 = beacon1;
+//    } else if (beacon0.minor == _minor2 &&
+//               beacon1.minor == _minor0 &&
+//               beacon2.minor == _minor1){
+//        _beacon0 = beacon1; _beacon1 = beacon2; _beacon2 = beacon0;
+//    } else if (beacon0.minor == _minor2 &&
+//               beacon1.minor == _minor1 &&
+//               beacon2.minor == _minor0){
+//        _beacon0 = beacon2; _beacon1 = beacon1; _beacon2 = beacon0;
+//    }
 }
 
 // Send minor value to database and ask for rest of beacon minor info.
@@ -159,8 +180,13 @@
     [request setHTTPMethod:@"POST"];
     [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
     
-    NSDictionary *dataDict = [NSDictionary dictionaryWithObject:_curMajor forKey:@"major"];
-    NSData *data = [NSJSONSerialization dataWithJSONObject:dataDict options:0 error:nil];
+    NSDictionary *dataDict = [NSDictionary dictionaryWithObject: @"00000" forKey:@"major"];
+    
+    if (_curMajor != NULL)
+        dataDict = [NSDictionary dictionaryWithObject:_curMajor forKey:@"major"];
+    
+    
+    NSData *data = [NSJSONSerialization dataWithJSONObject:dataDict options: 0 error:nil];
     NSString *str = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
     
     [request setValue:[NSString stringWithFormat:@"%lu", (unsigned long)[str length]] forHTTPHeaderField:@"Content-length"];
@@ -185,11 +211,24 @@
     if (_curMajor != nil || _curMajor != NULL)
     major = _curMajor;
     
-    NSArray *p0 = @[_beacon0.major, _beacon0.minor, _beacon0.distance];
-    NSArray *p1 = @[_beacon1.major, _beacon1.minor, _beacon1.distance];
-    NSArray *p2 = @[_beacon2.major, _beacon2.minor, _beacon2.distance];
+    NSArray *p0;
+    NSArray *p1;
+    NSArray *p2;
     
-    NSArray *points = @[p0, p1, p2];
+    if (_numberBeacons > 0)
+        p0 = @[_beacon0.major, _beacon0.minor, _beacon0.distance];
+    if (_numberBeacons > 1)
+        p1 = @[_beacon1.major, _beacon1.minor, _beacon1.distance];
+    if (_numberBeacons > 2)
+        p2 = @[_beacon2.major, _beacon2.minor, _beacon2.distance];
+    
+    NSArray *points = NULL;
+    if (_numberBeacons > 2)
+        points = @[p0, p1, p2];
+    else if (_numberBeacons > 1)
+        points = @[p0, p1];
+    else if (_numberBeacons > 0)
+        points = @[p0];
     
     NSString *userID = [[[UIDevice currentDevice] identifierForVendor] UUIDString];
     

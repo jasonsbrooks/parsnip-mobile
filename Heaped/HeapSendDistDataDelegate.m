@@ -18,7 +18,7 @@
 // Handles response data from HTTP request.
 -(void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data
 {
-    NSString *dataStr = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+//    NSString *dataStr = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
 //    NSLog(@"\n\nReceived data: %@\n\n", dataStr);
 }
 
@@ -26,10 +26,10 @@
 - (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSHTTPURLResponse *)response
 {
     //    Receiver's URL.
-    NSString *recURL = [response.URL absoluteString];
+//    NSString *recURL = [response.URL absoluteString];
     
     // Request status code.
-    NSString *status = [NSString stringWithFormat:@"%d", (int) [response statusCode]];
+//    NSString *status = [NSString stringWithFormat:@"%d", (int) [response statusCode]];
     
 //    NSLog(@"\nstatus: %@\nurl: %@", status, recURL);
 }

@@ -31,15 +31,6 @@ NSDictionary *dealsDict;
     [super viewDidLoad];
     [self receiveDealUpdates];
     
-    if (dealsDict == NULL) {
-        dealsDict = [NSDictionary dictionaryWithObjects:@[
-            [@[@"All pants 100% off ;)", @"Cheese biscuits only 99 cents", @"Where's Waldo?"] mutableCopy],
-            [@[@"pants plz", @"wtf are those", @"there's waldo"] mutableCopy],
-            [@[@"yo", @"yo", @"yo"] mutableCopy],
-            [@[@"default", @"default", @"default"] mutableCopy]]
-        forKeys:@[@"deals", @"details", @"descriptions", @"images"]];
-    }
-    
     self.deals = dealsDict;
     
     // Uncomment the following line to preserve selection between presentations.
@@ -101,6 +92,7 @@ NSDictionary *dealsDict;
 {
     NSLog(@"Detected storeInfo notification.");
     
+//    dealsDict = note.userInfo[@"advertisements"];
     dealsDict = note.userInfo;
     
 //    NSString *state = [dealsDict valueForKey:@"state"];
@@ -111,7 +103,7 @@ NSDictionary *dealsDict;
     [self viewDidLoad];
     
 //    NSLog(@"State: %@", state);
-    NSLog(@"Dict: %@", dealsDict[@"deals"]);
+//    NSLog(@"Dict: %@", dealsDict[@"deals"]);
 }
 
 /*
