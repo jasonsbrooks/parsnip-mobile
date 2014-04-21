@@ -32,6 +32,7 @@
 		BB60E84C18ECEBB300F39CBC /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB60E84B18ECEBB300F39CBC /* CoreLocation.framework */; };
 		BB60E85918ECF32400F39CBC /* libEstimoteSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BB60E85818ECF32400F39CBC /* libEstimoteSDK.a */; };
 		BB60E85D18ECF40000F39CBC /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB60E85C18ECF40000F39CBC /* SystemConfiguration.framework */; };
+		BB62F4E81904E29600C0AEF8 /* LocationSenderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = BB62F4E71904E29600C0AEF8 /* LocationSenderTests.m */; };
 		BBD5F72E18F08A4700003F8B /* HeapLocationSender.m in Sources */ = {isa = PBXBuildFile; fileRef = BBD5F72D18F08A4700003F8B /* HeapLocationSender.m */; };
 		BBF49A5318EDA7B3008047D0 /* HeapTrilaterate.m in Sources */ = {isa = PBXBuildFile; fileRef = BBF49A5218EDA7B3008047D0 /* HeapTrilaterate.m */; };
 		BBF6B2C918FB9034009CFB1C /* HeapSendDistDataDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BBF6B2C818FB9034009CFB1C /* HeapSendDistDataDelegate.m */; };
@@ -84,6 +85,7 @@
 		BB60E86718ECF48400F39CBC /* ESTBeaconManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ESTBeaconManager.h; sourceTree = "<group>"; };
 		BB60E86818ECF48400F39CBC /* ESTBeaconRegion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ESTBeaconRegion.h; sourceTree = "<group>"; };
 		BB60E86918ECF48400F39CBC /* ESTBeaconUpdateInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ESTBeaconUpdateInfo.h; sourceTree = "<group>"; };
+		BB62F4E71904E29600C0AEF8 /* LocationSenderTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationSenderTests.m; sourceTree = "<group>"; };
 		BBD5F72C18F08A4700003F8B /* HeapLocationSender.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HeapLocationSender.h; sourceTree = "<group>"; };
 		BBD5F72D18F08A4700003F8B /* HeapLocationSender.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HeapLocationSender.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		BBF49A5118EDA7B3008047D0 /* HeapTrilaterate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HeapTrilaterate.h; sourceTree = "<group>"; };
@@ -186,13 +188,13 @@
 				BB60E83D18ECE4E100F39CBC /* Main.storyboard */,
 				B73666FD19009B930009CB1C /* Info */,
 				BBF5547518F0EC5500FC3660 /* LocationSender */,
-				BBA29B7418F862A7004BA39D /* Trilaterate */,
 				BB24C63918F9ED960074AA11 /* Deal */,
 				BB60E86418ECF48400F39CBC /* BeaconHeaders */,
 				BB60E81B18ECE40B00F39CBC /* Images.xcassets */,
 				BB60E81818ECE40B00F39CBC /* Heaped.xcdatamodeld */,
 				BB60E80D18ECE40B00F39CBC /* Supporting Files */,
 				B7A4D5EE18EF82D700BE01CC /* todo */,
+				BBA29B7418F862A7004BA39D /* Trilaterate */,
 			);
 			path = Heaped;
 			sourceTree = "<group>";
@@ -211,6 +213,7 @@
 		BB60E82918ECE40B00F39CBC /* HeapedTests */ = {
 			isa = PBXGroup;
 			children = (
+				BB62F4E71904E29600C0AEF8 /* LocationSenderTests.m */,
 				BB60E82F18ECE40B00F39CBC /* HeapedTests.m */,
 				BB60E82A18ECE40B00F39CBC /* Supporting Files */,
 			);
@@ -383,6 +386,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BB60E83018ECE40B00F39CBC /* HeapedTests.m in Sources */,
+				BB62F4E81904E29600C0AEF8 /* LocationSenderTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

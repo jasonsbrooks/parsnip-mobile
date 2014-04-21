@@ -1,18 +1,19 @@
 //
-//  HeapedTests.m
-//  HeapedTests
+//  LocationSenderTests.m
+//  Heaped
 //
-//  Created by Michael Zhao on 4/2/14.
+//  Created by Michael Zhao on 4/21/14.
 //  Copyright (c) 2014 Michael Zhao. All rights reserved.
 //
 
 #import <XCTest/XCTest.h>
+#import "HeapLocationSender.h"
 
-@interface HeapedTests : XCTestCase
+@interface LocationSenderTests : XCTestCase
 
 @end
 
-@implementation HeapedTests
+@implementation LocationSenderTests
 
 - (void)setUp
 {
@@ -26,9 +27,10 @@
     [super tearDown];
 }
 
-- (void)testExample
+-(void)testSendStoreInfoNotification
 {
 
+    
 }
 
 @end

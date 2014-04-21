@@ -27,8 +27,8 @@
 @property NSNumber *minor2;
 @property int numberBeacons;
 
-@property NSURLConnection *minorConnection;
-@property NSURLConnection *dataConnection;
+@property NSURLConnection *distanceConnection;
+@property NSURLConnection *storeConnection;
 
 @property NSInteger counter;
 @property NSMutableArray *arr;
@@ -121,53 +121,24 @@
     // Map distances to correct beacons.
     if (beacon0.minor == _minor0)
         _beacon0 = beacon0;
-    else if (beacon0.minor == _minor1)
+    else if (beacon1.minor == _minor0)
         _beacon0 = beacon1;
-    else if (beacon0.minor == _minor2)
+    else if (beacon2.minor == _minor0)
         _beacon0 = beacon2;
     
-    if (beacon1.minor == _minor0)
-        _beacon0 = beacon0;
+    if (beacon0.minor == _minor1)
+        _beacon1 = beacon0;
     else if (beacon1.minor == _minor1)
-        _beacon0 = beacon1;
-    else if (beacon1.minor == _minor2)
-        _beacon0 = beacon2;
-    
-    if (beacon2.minor == _minor0)
-        _beacon0 = beacon0;
+        _beacon1 = beacon1;
     else if (beacon2.minor == _minor1)
-        _beacon0 = beacon1;
-    else if (beacon2.minor == _minor2)
-        _beacon0 = beacon2;
+        _beacon1 = beacon2;
     
-//
-//    if (beacon0.minor == _minor0 &&
-//        beacon1.minor == _minor1 &&
-//        beacon2.minor == _minor2){
-//        _beacon0 = beacon0; _beacon1 = beacon1; _beacon2 = beacon2;
-//    } else if (beacon0.minor == _minor0 &&
-//               beacon1.minor == _minor2 &&
-//               beacon2.minor == _minor1){
-//        _beacon0 = beacon0; _beacon1 = beacon2; _beacon2 = beacon1;
-//        
-//    } else if (beacon0.minor == _minor1 &&
-//               beacon1.minor == _minor0 &&
-//               beacon2.minor == _minor2){
-//        _beacon0 = beacon1; _beacon1 = beacon0; _beacon2 = beacon2;
-//        
-//    } else if (beacon0.minor == _minor1 &&
-//               beacon1.minor == _minor2 &&
-//               beacon2.minor == _minor0){
-//        _beacon0 = beacon2; _beacon1 = beacon0; _beacon2 = beacon1;
-//    } else if (beacon0.minor == _minor2 &&
-//               beacon1.minor == _minor0 &&
-//               beacon2.minor == _minor1){
-//        _beacon0 = beacon1; _beacon1 = beacon2; _beacon2 = beacon0;
-//    } else if (beacon0.minor == _minor2 &&
-//               beacon1.minor == _minor1 &&
-//               beacon2.minor == _minor0){
-//        _beacon0 = beacon2; _beacon1 = beacon1; _beacon2 = beacon0;
-//    }
+    if (beacon0.minor == _minor2)
+        _beacon2 = beacon0;
+    else if (beacon2.minor == _minor2)
+        _beacon2 = beacon1;
+    else if (beacon2.minor == _minor2)
+        _beacon2 = beacon2;
 }
 
 // Send minor value to database and ask for rest of beacon minor info.
@@ -193,7 +164,7 @@
     
     [request setHTTPBody:data];
     
-    self.dataConnection = [[NSURLConnection alloc] initWithRequest:request delegate:self];
+    self.storeConnection = [[NSURLConnection alloc] initWithRequest:request delegate:self];
 }
 
 // Send distances.
@@ -246,7 +217,7 @@
     HeapSendDistDataDelegate *dataDelegate = [[HeapSendDistDataDelegate alloc] init];
     
     // Delegate is self to set class minor variables.
-    self.minorConnection = [[NSURLConnection alloc] initWithRequest:request delegate:dataDelegate];
+    self.distanceConnection = [[NSURLConnection alloc] initWithRequest:request delegate:dataDelegate];
 }
 
 
@@ -255,7 +226,6 @@
 // Handles response data from HTTP request for minor information.
 -(void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data
 {
-    
     // Store beacons in database.
     _storeInfo = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
     
