@@ -34,7 +34,6 @@
 		BB60E85D18ECF40000F39CBC /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB60E85C18ECF40000F39CBC /* SystemConfiguration.framework */; };
 		BB62F4E81904E29600C0AEF8 /* LocationSenderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = BB62F4E71904E29600C0AEF8 /* LocationSenderTests.m */; };
 		BBD5F72E18F08A4700003F8B /* HeapLocationSender.m in Sources */ = {isa = PBXBuildFile; fileRef = BBD5F72D18F08A4700003F8B /* HeapLocationSender.m */; };
-		BBF49A5318EDA7B3008047D0 /* HeapTrilaterate.m in Sources */ = {isa = PBXBuildFile; fileRef = BBF49A5218EDA7B3008047D0 /* HeapTrilaterate.m */; };
 		BBF6B2C918FB9034009CFB1C /* HeapSendDistDataDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BBF6B2C818FB9034009CFB1C /* HeapSendDistDataDelegate.m */; };
 /* End PBXBuildFile section */
 
@@ -88,8 +87,6 @@
 		BB62F4E71904E29600C0AEF8 /* LocationSenderTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationSenderTests.m; sourceTree = "<group>"; };
 		BBD5F72C18F08A4700003F8B /* HeapLocationSender.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HeapLocationSender.h; sourceTree = "<group>"; };
 		BBD5F72D18F08A4700003F8B /* HeapLocationSender.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HeapLocationSender.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
-		BBF49A5118EDA7B3008047D0 /* HeapTrilaterate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HeapTrilaterate.h; sourceTree = "<group>"; };
-		BBF49A5218EDA7B3008047D0 /* HeapTrilaterate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HeapTrilaterate.m; sourceTree = "<group>"; };
 		BBF6B2C718FB9034009CFB1C /* HeapSendDistDataDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HeapSendDistDataDelegate.h; sourceTree = "<group>"; };
 		BBF6B2C818FB9034009CFB1C /* HeapSendDistDataDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HeapSendDistDataDelegate.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -194,7 +191,6 @@
 				BB60E81818ECE40B00F39CBC /* Heaped.xcdatamodeld */,
 				BB60E80D18ECE40B00F39CBC /* Supporting Files */,
 				B7A4D5EE18EF82D700BE01CC /* todo */,
-				BBA29B7418F862A7004BA39D /* Trilaterate */,
 			);
 			path = Heaped;
 			sourceTree = "<group>";
@@ -240,15 +236,6 @@
 			);
 			name = BeaconHeaders;
 			path = Headers;
-			sourceTree = "<group>";
-		};
-		BBA29B7418F862A7004BA39D /* Trilaterate */ = {
-			isa = PBXGroup;
-			children = (
-				BBF49A5118EDA7B3008047D0 /* HeapTrilaterate.h */,
-				BBF49A5218EDA7B3008047D0 /* HeapTrilaterate.m */,
-			);
-			name = Trilaterate;
 			sourceTree = "<group>";
 		};
 		BBF5547518F0EC5500FC3660 /* LocationSender */ = {
@@ -371,7 +358,6 @@
 			files = (
 				BB60E81718ECE40B00F39CBC /* HeapAppDelegate.m in Sources */,
 				B7A4D5F218EF938300BE01CC /* dealTableViewController.m in Sources */,
-				BBF49A5318EDA7B3008047D0 /* HeapTrilaterate.m in Sources */,
 				B7A4D5F618EF9DD800BE01CC /* dealViewController.m in Sources */,
 				BB60E81318ECE40B00F39CBC /* main.m in Sources */,
 				BBF6B2C918FB9034009CFB1C /* HeapSendDistDataDelegate.m in Sources */,
