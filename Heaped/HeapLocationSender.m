@@ -41,12 +41,11 @@
 
 -(void)storeInfoNotification
 {
-    NSLog(@"firing");
-
     [[NSNotificationCenter defaultCenter]
      postNotificationName:@"storeInfo"
      object:nil
      userInfo:_storeInfo];
+    
 }
 
 //  TODO: Complete the function to relay d0, d1, d2 to the notification center.
@@ -83,7 +82,7 @@
 {
     
         _numberBeacons = (int) [beacons count];
-        NSLog(@"Num Beacons: %d", _numberBeacons);
+//        NSLog(@"Num Beacons: %d", _numberBeacons);
         // If we don't detect enough beacons (customer isn't in a store),
         // then stop ranging for beacons.
 //        if ([beacons count] <=2){
@@ -109,6 +108,12 @@
     
         // Increment counter, and send data every {DATA_INTERVAL} detections.
         if (self.counter++ > DATA_INTERVAL && _numberBeacons >= 2) {
+            
+            [[NSNotificationCenter defaultCenter]
+             postNotificationName:@"dealInfo"
+             object:nil
+             userInfo:_storeInfo];
+            
             [self sendData];
             // Reset variables.
             self.counter = 0;
@@ -211,7 +216,7 @@
     NSString *str = [data description];
     
     [request setValue:[NSString stringWithFormat:@"%lu", (unsigned long)[str length]] forHTTPHeaderField:@"Content-length"];
-    
+
     [request setHTTPBody:data];
     
     HeapSendDistDataDelegate *dataDelegate = [[HeapSendDistDataDelegate alloc] init];
@@ -229,7 +234,7 @@
     // Store beacons in database.
     _storeInfo = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
     
-    NSLog(@"%@", [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]);
+    NSLog(@"Received data: %@", [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]);
     
     // Send store info to notification center.
     [self storeInfoNotification];

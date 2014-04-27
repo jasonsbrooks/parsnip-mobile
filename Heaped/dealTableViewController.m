@@ -15,7 +15,7 @@
 
 @implementation dealTableViewController
 
-NSDictionary *dealsDict;
+NSDictionary *infoDict;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -30,8 +30,6 @@ NSDictionary *dealsDict;
 {
     [super viewDidLoad];
     [self receiveDealUpdates];
-    
-    self.deals = dealsDict;
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -57,8 +55,7 @@ NSDictionary *dealsDict;
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-//    return [[self.deals objectForKey: @"deals"] count];
-    return 3;
+    return [[infoDict objectForKey: @"deals"] count];
 }
 
 
@@ -69,21 +66,13 @@ NSDictionary *dealsDict;
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:reuseIdentifier forIndexPath:indexPath];
     
     NSString * entry;
-    entry = self.deals[@"deals"][indexPath.row];
-    if (indexPath.row == 0)
-        cell.textLabel.text = @"Free Pastry Or Sweet Treat";
-    else if (indexPath.row == 1)
-        cell.textLabel.text = @"$6.99 Tuesday Bagel Special";
-    if (indexPath.row == 2)
-        cell.textLabel.text = @"Try A Nutritious Salad Today. Choose From Thai Chopped Chicken & Mediterranean Salmon";
+    entry = infoDict[@"deals"][indexPath.row];
+    
+    cell.textLabel.text = entry;
     cell.textLabel.font = [UIFont fontWithName:@"HelveticaNeue-Light" size:16.0];
     return cell;
 }
 
-- (void) tableView: (UITableView *) tableView didSelectRowAtIndexPath: (NSIndexPath *) indexPath
-{
-    [tableView deselectRowAtIndexPath:indexPath animated:NO];
-}
 
 
 #pragma mark - Notifications
@@ -95,26 +84,24 @@ NSDictionary *dealsDict;
     [[NSNotificationCenter defaultCenter]
      addObserver:self    // Wants to know when update happens
      selector:@selector(handleDealUpdate:)  // Method that gets called when notification happens.
-     name:@"storeInfo"   // Title of notification.
+     name:@"dealInfo"   // Title of notification.
      object:nil];
 }
 
 -(void)handleDealUpdate:(NSNotification *)note
 {
-    NSLog(@"Detected storeInfo notification.");
+    NSLog(@"Detected dealInfo notification.");
     
-//    dealsDict = note.userInfo[@"advertisements"];
-    dealsDict = note.userInfo;
-    
-//    NSString *state = [dealsDict valueForKey:@"state"];
+//    infoDict = note.userInfo[@"advertisements"];
+     infoDict = note.userInfo;
     
     [self.tableView reloadData];
     [[NSNotificationCenter defaultCenter]
      removeObserver:self];
+    
     [self viewDidLoad];
     
-//    NSLog(@"State: %@", state);
-//    NSLog(@"Dict: %@", dealsDict[@"deals"]);
+    NSLog(@"Store name: %@", infoDict[@"name"]);
 }
 
 
@@ -133,12 +120,11 @@ NSDictionary *dealsDict;
         NSIndexPath *myIndexPath = [self.tableView indexPathForSelectedRow];
         
         long row = [myIndexPath row];
-        
+
         // access db with row
-        
-        dealDetailViewController.dealArray = @[self.deals[@"deals"][row], self.deals[@"details"][row],
-            self.deals[@"descriptions"][row],
-            self.deals[@"images"][row]];
+        dealDetailViewController.dealArray = @[infoDict[@"deals"][row], infoDict[@"details"][row],
+            infoDict[@"descriptions"][row],
+            infoDict[@"images"][row]];
     }
     
 }

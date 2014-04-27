@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "BB60E80018ECE40B00F39CBC"
-               BuildableName = "Heaped.app"
+               BuildableName = "Parsnip.app"
                BlueprintName = "Parsnip"
                ReferencedContainer = "container:Heaped.xcodeproj">
             </BuildableReference>
@@ -43,7 +43,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "BB60E80018ECE40B00F39CBC"
-            BuildableName = "Heaped.app"
+            BuildableName = "Parsnip.app"
             BlueprintName = "Parsnip"
             ReferencedContainer = "container:Heaped.xcodeproj">
          </BuildableReference>
@@ -62,7 +62,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "BB60E80018ECE40B00F39CBC"
-            BuildableName = "Heaped.app"
+            BuildableName = "Parsnip.app"
             BlueprintName = "Parsnip"
             ReferencedContainer = "container:Heaped.xcodeproj">
          </BuildableReference>
@@ -80,7 +80,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "BB60E80018ECE40B00F39CBC"
-            BuildableName = "Heaped.app"
+            BuildableName = "Parsnip.app"
             BlueprintName = "Parsnip"
             ReferencedContainer = "container:Heaped.xcodeproj">
          </BuildableReference>

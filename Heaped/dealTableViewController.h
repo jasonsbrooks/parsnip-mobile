@@ -10,6 +10,6 @@
 
 @interface dealTableViewController : UITableViewController
 
-@property (copy) NSDictionary *deals;
+@property NSDictionary *deals;
 
 @end

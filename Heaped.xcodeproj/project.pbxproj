@@ -57,7 +57,7 @@
 		B7A4D5F318EF9DD800BE01CC /* dealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = dealViewController.h; sourceTree = "<group>"; };
 		B7A4D5F418EF9DD800BE01CC /* dealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = dealViewController.m; sourceTree = "<group>"; };
 		B7A4D5F518EF9DD800BE01CC /* dealViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = dealViewController.xib; sourceTree = "<group>"; };
-		BB60E80118ECE40B00F39CBC /* Heaped.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Heaped.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		BB60E80118ECE40B00F39CBC /* Parsnip.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Parsnip.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB60E80418ECE40B00F39CBC /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		BB60E80618ECE40B00F39CBC /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		BB60E80818ECE40B00F39CBC /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -157,7 +157,7 @@
 		BB60E80218ECE40B00F39CBC /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				BB60E80118ECE40B00F39CBC /* Heaped.app */,
+				BB60E80118ECE40B00F39CBC /* Parsnip.app */,
 				BB60E82118ECE40B00F39CBC /* HeapedTests.xctest */,
 			);
 			name = Products;
@@ -269,7 +269,7 @@
 			);
 			name = Parsnip;
 			productName = Heaped;
-			productReference = BB60E80118ECE40B00F39CBC /* Heaped.app */;
+			productReference = BB60E80118ECE40B00F39CBC /* Parsnip.app */;
 			productType = "com.apple.product-type.application";
 		};
 		BB60E82018ECE40B00F39CBC /* HeapedTests */ = {

@@ -34,18 +34,20 @@ NSDictionary *infoDict;
     _StoreTitle.font = [UIFont fontWithName:@"HelveticaNeue-Thin" size:40.0];
     
     if (infoDict == NULL){
-        _StoreTitle.text = @"Loading";
+        _StoreTitle.text = @"Visit your favorite retailer to witness the power of Parsnip.";
+        _StoreTitle.font = [UIFont fontWithName:@"HelveticaNeue-Thin" size:10.0];
+
         _Label1.text = @"";
         _Label2.text = @"";
-        _Label3.text = @"Ranging for Stores...";
+        _Label3.text = @"";
         _Label4.text = @"";
         _Label5.text = @"";
         _Label6.text = @"";
     } else {
         _StoreTitle.text = infoDict[@"name"];
-        _Label1.text = @"";
-        _Label2.text = @"";
-        _Label3.text = @"Success!";
+        _Label1.text = infoDict[@"address1"];
+        _Label2.text = infoDict[@"city"];
+        _Label3.text = infoDict[@"state"];
         _Label4.text = @"";
         _Label5.text = @"";
         _Label6.text = @"";
@@ -77,15 +79,11 @@ NSDictionary *infoDict;
     NSLog(@"Detected storeInfo notification.");
     
     infoDict = note.userInfo;
-    
-    // NSString *state = [dealsDict valueForKey:@"state"];
-    
+        
     [[NSNotificationCenter defaultCenter]
      removeObserver:self];
     [self viewDidLoad];
     
-    // NSLog(@"State: %@", state);
-    NSLog(@"Dict: %@", infoDict[@"storeName"]);
 }
 
 
