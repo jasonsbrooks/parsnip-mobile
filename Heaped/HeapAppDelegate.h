@@ -8,7 +8,6 @@
 
 #import <UIKit/UIKit.h>
 #import "HeapLocationSender.h"
-#import "HeapTrilaterate.h"
 
 @interface HeapAppDelegate : UIResponder <UIApplicationDelegate>
 

@@ -17,4 +17,6 @@
 @property (strong, nonatomic) IBOutlet UILabel *Label5;
 @property (strong, nonatomic) IBOutlet UILabel *Label6;
 
+-(void) viewDidLoad;
+
 @end

@@ -1,23 +1,19 @@
 //
-//  LocationSenderTests.m
+//  DealModelTests.m
 //  Heaped
 //
-//  Created by Michael Zhao on 4/21/14.
+//  Created by Michael Zhao on 4/26/14.
 //  Copyright (c) 2014 Michael Zhao. All rights reserved.
 //
 
 #import <XCTest/XCTest.h>
-#import "HeapLocationSender.h"
+#import "HeapInfoViewController.h"
 
-@interface LocationSenderTests : XCTestCase 
-
-@property HeapLocationSender *ranger;
+@interface DealModelTests : XCTestCase
 
 @end
 
-@implementation LocationSenderTests
-
-
+@implementation DealModelTests
 
 - (void)setUp
 {
@@ -31,11 +27,10 @@
     [super tearDown];
 }
 
--(void)testSendStoreInfoNotification
+- (void)testInfoView
 {
-    _ranger = [[HeapLocationSender alloc] init];
-    [_ranger makeBeaconManager];
-
+    HeapInfoViewController *view = [[HeapInfoViewController alloc] init];
+    [view viewDidLoad];
 }
 
 @end

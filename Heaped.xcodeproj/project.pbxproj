@@ -33,6 +33,7 @@
 		BB60E85918ECF32400F39CBC /* libEstimoteSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BB60E85818ECF32400F39CBC /* libEstimoteSDK.a */; };
 		BB60E85D18ECF40000F39CBC /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB60E85C18ECF40000F39CBC /* SystemConfiguration.framework */; };
 		BB62F4E81904E29600C0AEF8 /* LocationSenderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = BB62F4E71904E29600C0AEF8 /* LocationSenderTests.m */; };
+		BBCB8FF6190CA2A60073A2B5 /* DealModelTests.m in Sources */ = {isa = PBXBuildFile; fileRef = BBCB8FF5190CA2A60073A2B5 /* DealModelTests.m */; };
 		BBD5F72E18F08A4700003F8B /* HeapLocationSender.m in Sources */ = {isa = PBXBuildFile; fileRef = BBD5F72D18F08A4700003F8B /* HeapLocationSender.m */; };
 		BBF6B2C918FB9034009CFB1C /* HeapSendDistDataDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BBF6B2C818FB9034009CFB1C /* HeapSendDistDataDelegate.m */; };
 /* End PBXBuildFile section */
@@ -85,6 +86,7 @@
 		BB60E86818ECF48400F39CBC /* ESTBeaconRegion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ESTBeaconRegion.h; sourceTree = "<group>"; };
 		BB60E86918ECF48400F39CBC /* ESTBeaconUpdateInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ESTBeaconUpdateInfo.h; sourceTree = "<group>"; };
 		BB62F4E71904E29600C0AEF8 /* LocationSenderTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationSenderTests.m; sourceTree = "<group>"; };
+		BBCB8FF5190CA2A60073A2B5 /* DealModelTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DealModelTests.m; sourceTree = "<group>"; };
 		BBD5F72C18F08A4700003F8B /* HeapLocationSender.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HeapLocationSender.h; sourceTree = "<group>"; };
 		BBD5F72D18F08A4700003F8B /* HeapLocationSender.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HeapLocationSender.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		BBF6B2C718FB9034009CFB1C /* HeapSendDistDataDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HeapSendDistDataDelegate.h; sourceTree = "<group>"; };
@@ -210,6 +212,7 @@
 			isa = PBXGroup;
 			children = (
 				BB62F4E71904E29600C0AEF8 /* LocationSenderTests.m */,
+				BBCB8FF5190CA2A60073A2B5 /* DealModelTests.m */,
 				BB60E82F18ECE40B00F39CBC /* HeapedTests.m */,
 				BB60E82A18ECE40B00F39CBC /* Supporting Files */,
 			);
@@ -298,7 +301,7 @@
 				ORGANIZATIONNAME = "Michael Zhao";
 				TargetAttributes = {
 					BB60E80018ECE40B00F39CBC = {
-						DevelopmentTeam = NXGFCU2954;
+						DevelopmentTeam = P5S97F375V;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 1;
@@ -371,6 +374,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BBCB8FF6190CA2A60073A2B5 /* DealModelTests.m in Sources */,
 				BB60E83018ECE40B00F39CBC /* HeapedTests.m in Sources */,
 				BB62F4E81904E29600C0AEF8 /* LocationSenderTests.m in Sources */,
 			);

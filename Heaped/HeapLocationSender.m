@@ -83,7 +83,7 @@
 {
     
         _numberBeacons = (int) [beacons count];
-        NSLog(@"%d", _numberBeacons);
+        NSLog(@"Num Beacons: %d", _numberBeacons);
         // If we don't detect enough beacons (customer isn't in a store),
         // then stop ranging for beacons.
 //        if ([beacons count] <=2){

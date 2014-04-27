@@ -79,13 +79,13 @@ NSDictionary *infoDict;
 //    infoDict = note.userInfo[@"information"];
     infoDict = note.userInfo;
     
-    //    NSString *state = [dealsDict valueForKey:@"state"];
+    // NSString *state = [dealsDict valueForKey:@"state"];
     
     [[NSNotificationCenter defaultCenter]
      removeObserver:self];
     [self viewDidLoad];
     
-    //    NSLog(@"State: %@", state);
+    // NSLog(@"State: %@", state);
     NSLog(@"Dict: %@", infoDict[@"storeName"]);
 }
 
