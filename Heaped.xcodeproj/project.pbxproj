@@ -301,7 +301,7 @@
 				ORGANIZATIONNAME = "Michael Zhao";
 				TargetAttributes = {
 					BB60E80018ECE40B00F39CBC = {
-						DevelopmentTeam = NXGFCU2954;
+						DevelopmentTeam = P5S97F375V;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 1;
