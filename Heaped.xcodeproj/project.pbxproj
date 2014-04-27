@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		B73666FB19009B790009CB1C /* HeapInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B73666FA19009B790009CB1C /* HeapInfoViewController.m */; };
+		B77797DA190D7E3700EB4164 /* HeapCommandViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B77797D9190D7E3700EB4164 /* HeapCommandViewController.m */; };
 		B7A4D5EF18EF82D700BE01CC /* todo in Resources */ = {isa = PBXBuildFile; fileRef = B7A4D5EE18EF82D700BE01CC /* todo */; };
 		B7A4D5F218EF938300BE01CC /* dealTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B7A4D5F118EF938300BE01CC /* dealTableViewController.m */; };
 		B7A4D5F618EF9DD800BE01CC /* dealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B7A4D5F418EF9DD800BE01CC /* dealViewController.m */; };
@@ -51,6 +52,8 @@
 /* Begin PBXFileReference section */
 		B73666F919009B790009CB1C /* HeapInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HeapInfoViewController.h; sourceTree = "<group>"; };
 		B73666FA19009B790009CB1C /* HeapInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HeapInfoViewController.m; sourceTree = "<group>"; };
+		B77797D8190D7E3700EB4164 /* HeapCommandViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HeapCommandViewController.h; sourceTree = "<group>"; };
+		B77797D9190D7E3700EB4164 /* HeapCommandViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HeapCommandViewController.m; sourceTree = "<group>"; };
 		B7A4D5EE18EF82D700BE01CC /* todo */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = todo; sourceTree = "<group>"; };
 		B7A4D5F018EF938300BE01CC /* dealTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = dealTableViewController.h; sourceTree = "<group>"; };
 		B7A4D5F118EF938300BE01CC /* dealTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = dealTableViewController.m; sourceTree = "<group>"; };
@@ -132,6 +135,15 @@
 			name = Info;
 			sourceTree = "<group>";
 		};
+		B77797DB190D7E3C00EB4164 /* Commands */ = {
+			isa = PBXGroup;
+			children = (
+				B77797D8190D7E3700EB4164 /* HeapCommandViewController.h */,
+				B77797D9190D7E3700EB4164 /* HeapCommandViewController.m */,
+			);
+			name = Commands;
+			sourceTree = "<group>";
+		};
 		BB24C63918F9ED960074AA11 /* Deal */ = {
 			isa = PBXGroup;
 			children = (
@@ -185,6 +197,7 @@
 				BB60E81518ECE40B00F39CBC /* HeapAppDelegate.h */,
 				BB60E81618ECE40B00F39CBC /* HeapAppDelegate.m */,
 				BB60E83D18ECE4E100F39CBC /* Main.storyboard */,
+				B77797DB190D7E3C00EB4164 /* Commands */,
 				B73666FD19009B930009CB1C /* Info */,
 				BBF5547518F0EC5500FC3660 /* LocationSender */,
 				BB24C63918F9ED960074AA11 /* Deal */,
@@ -301,7 +314,7 @@
 				ORGANIZATIONNAME = "Michael Zhao";
 				TargetAttributes = {
 					BB60E80018ECE40B00F39CBC = {
-						DevelopmentTeam = P5S97F375V;
+						DevelopmentTeam = NXGFCU2954;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 1;
@@ -367,6 +380,7 @@
 				B73666FB19009B790009CB1C /* HeapInfoViewController.m in Sources */,
 				BB60E81A18ECE40B00F39CBC /* Heaped.xcdatamodeld in Sources */,
 				BBD5F72E18F08A4700003F8B /* HeapLocationSender.m in Sources */,
+				B77797DA190D7E3700EB4164 /* HeapCommandViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

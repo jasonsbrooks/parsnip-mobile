@@ -22,12 +22,6 @@ UIBackgroundTaskIdentifier bgTask;
     [[UIApplication sharedApplication] setMinimumBackgroundFetchInterval:UIApplicationBackgroundFetchIntervalMinimum];
     
     [self createUI];
-
-    
-    NSString *phoneNumber = @"1-516-672-4605"; // dynamically assigned
-    NSString *phoneURLString = [NSString stringWithFormat:@"tel:%@", phoneNumber];
-    NSURL *phoneURL = [NSURL URLWithString:phoneURLString];
-    [[UIApplication sharedApplication] openURL:phoneURL];
     
     [self rangeBeacons];
         
