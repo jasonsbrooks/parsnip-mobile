@@ -6,6 +6,7 @@
 //  Copyright (c) 2014 Michael Zhao. All rights reserved.
 //
 
+#import "iOStream.h"
 #import <UIKit/UIKit.h>
 #import "HeapLocationSender.h"
 

@@ -9,6 +9,21 @@
 /* Begin PBXBuildFile section */
 		B73666FB19009B790009CB1C /* HeapInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B73666FA19009B790009CB1C /* HeapInfoViewController.m */; };
 		B77797DA190D7E3700EB4164 /* HeapCommandViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B77797D9190D7E3700EB4164 /* HeapCommandViewController.m */; };
+		B77797DD190D8BF100EB4164 /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = B77797DC190D8BF100EB4164 /* libicucore.dylib */; };
+		B77797DF190D8C0200EB4164 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B77797DE190D8C0200EB4164 /* CFNetwork.framework */; };
+		B77797E1190D8C1000EB4164 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B77797E0190D8C1000EB4164 /* Security.framework */; };
+		B77797FD190D8C3F00EB4164 /* iOStream.m in Sources */ = {isa = PBXBuildFile; fileRef = B77797E5190D8C3F00EB4164 /* iOStream.m */; };
+		B77797FE190D8C3F00EB4164 /* base64.c in Sources */ = {isa = PBXBuildFile; fileRef = B77797E7190D8C3F00EB4164 /* base64.c */; };
+		B77797FF190D8C3F00EB4164 /* KTouchPointerWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = B77797EA190D8C3F00EB4164 /* KTouchPointerWindow.m */; };
+		B7779800190D8C3F00EB4164 /* NSData+SRB64Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = B77797EC190D8C3F00EB4164 /* NSData+SRB64Additions.m */; };
+		B7779801190D8C3F00EB4164 /* SocketIO.m in Sources */ = {isa = PBXBuildFile; fileRef = B77797EE190D8C3F00EB4164 /* SocketIO.m */; };
+		B7779802190D8C3F00EB4164 /* SocketIOJSONSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = B77797F0190D8C3F00EB4164 /* SocketIOJSONSerialization.m */; };
+		B7779803190D8C3F00EB4164 /* SocketIOPacket.m in Sources */ = {isa = PBXBuildFile; fileRef = B77797F2190D8C3F00EB4164 /* SocketIOPacket.m */; };
+		B7779804190D8C3F00EB4164 /* SocketIOTransportWebsocket.m in Sources */ = {isa = PBXBuildFile; fileRef = B77797F5190D8C3F00EB4164 /* SocketIOTransportWebsocket.m */; };
+		B7779805190D8C3F00EB4164 /* SocketIOTransportXHR.m in Sources */ = {isa = PBXBuildFile; fileRef = B77797F7190D8C3F00EB4164 /* SocketIOTransportXHR.m */; };
+		B7779806190D8C3F00EB4164 /* SRWebSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = B77797FA190D8C3F00EB4164 /* SRWebSocket.m */; };
+		B7779807190D8C3F00EB4164 /* LICENSE-iOStreamClient.txt in Resources */ = {isa = PBXBuildFile; fileRef = B77797FB190D8C3F00EB4164 /* LICENSE-iOStreamClient.txt */; };
+		B7779808190D8C3F00EB4164 /* LICENSE-socketIO-objc.txt in Resources */ = {isa = PBXBuildFile; fileRef = B77797FC190D8C3F00EB4164 /* LICENSE-socketIO-objc.txt */; };
 		B7A4D5EF18EF82D700BE01CC /* todo in Resources */ = {isa = PBXBuildFile; fileRef = B7A4D5EE18EF82D700BE01CC /* todo */; };
 		B7A4D5F218EF938300BE01CC /* dealTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B7A4D5F118EF938300BE01CC /* dealTableViewController.m */; };
 		B7A4D5F618EF9DD800BE01CC /* dealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B7A4D5F418EF9DD800BE01CC /* dealViewController.m */; };
@@ -54,6 +69,33 @@
 		B73666FA19009B790009CB1C /* HeapInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HeapInfoViewController.m; sourceTree = "<group>"; };
 		B77797D8190D7E3700EB4164 /* HeapCommandViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HeapCommandViewController.h; sourceTree = "<group>"; };
 		B77797D9190D7E3700EB4164 /* HeapCommandViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HeapCommandViewController.m; sourceTree = "<group>"; };
+		B77797DC190D8BF100EB4164 /* libicucore.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.dylib; path = usr/lib/libicucore.dylib; sourceTree = SDKROOT; };
+		B77797DE190D8C0200EB4164 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		B77797E0190D8C1000EB4164 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		B77797E4190D8C3F00EB4164 /* iOStream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iOStream.h; sourceTree = "<group>"; };
+		B77797E5190D8C3F00EB4164 /* iOStream.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iOStream.m; sourceTree = "<group>"; };
+		B77797E7190D8C3F00EB4164 /* base64.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = base64.c; sourceTree = "<group>"; };
+		B77797E8190D8C3F00EB4164 /* base64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = base64.h; sourceTree = "<group>"; };
+		B77797E9190D8C3F00EB4164 /* KTouchPointerWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KTouchPointerWindow.h; sourceTree = "<group>"; };
+		B77797EA190D8C3F00EB4164 /* KTouchPointerWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KTouchPointerWindow.m; sourceTree = "<group>"; };
+		B77797EB190D8C3F00EB4164 /* NSData+SRB64Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+SRB64Additions.h"; sourceTree = "<group>"; };
+		B77797EC190D8C3F00EB4164 /* NSData+SRB64Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+SRB64Additions.m"; sourceTree = "<group>"; };
+		B77797ED190D8C3F00EB4164 /* SocketIO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SocketIO.h; sourceTree = "<group>"; };
+		B77797EE190D8C3F00EB4164 /* SocketIO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SocketIO.m; sourceTree = "<group>"; };
+		B77797EF190D8C3F00EB4164 /* SocketIOJSONSerialization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SocketIOJSONSerialization.h; sourceTree = "<group>"; };
+		B77797F0190D8C3F00EB4164 /* SocketIOJSONSerialization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SocketIOJSONSerialization.m; sourceTree = "<group>"; };
+		B77797F1190D8C3F00EB4164 /* SocketIOPacket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SocketIOPacket.h; sourceTree = "<group>"; };
+		B77797F2190D8C3F00EB4164 /* SocketIOPacket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SocketIOPacket.m; sourceTree = "<group>"; };
+		B77797F3190D8C3F00EB4164 /* SocketIOTransport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SocketIOTransport.h; sourceTree = "<group>"; };
+		B77797F4190D8C3F00EB4164 /* SocketIOTransportWebsocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SocketIOTransportWebsocket.h; sourceTree = "<group>"; };
+		B77797F5190D8C3F00EB4164 /* SocketIOTransportWebsocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SocketIOTransportWebsocket.m; sourceTree = "<group>"; };
+		B77797F6190D8C3F00EB4164 /* SocketIOTransportXHR.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SocketIOTransportXHR.h; sourceTree = "<group>"; };
+		B77797F7190D8C3F00EB4164 /* SocketIOTransportXHR.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SocketIOTransportXHR.m; sourceTree = "<group>"; };
+		B77797F8190D8C3F00EB4164 /* SocketRocket-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SocketRocket-Prefix.pch"; sourceTree = "<group>"; };
+		B77797F9190D8C3F00EB4164 /* SRWebSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRWebSocket.h; sourceTree = "<group>"; };
+		B77797FA190D8C3F00EB4164 /* SRWebSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRWebSocket.m; sourceTree = "<group>"; };
+		B77797FB190D8C3F00EB4164 /* LICENSE-iOStreamClient.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "LICENSE-iOStreamClient.txt"; sourceTree = "<group>"; };
+		B77797FC190D8C3F00EB4164 /* LICENSE-socketIO-objc.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "LICENSE-socketIO-objc.txt"; sourceTree = "<group>"; };
 		B7A4D5EE18EF82D700BE01CC /* todo */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = todo; sourceTree = "<group>"; };
 		B7A4D5F018EF938300BE01CC /* dealTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = dealTableViewController.h; sourceTree = "<group>"; };
 		B7A4D5F118EF938300BE01CC /* dealTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = dealTableViewController.m; sourceTree = "<group>"; };
@@ -101,6 +143,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B77797E1190D8C1000EB4164 /* Security.framework in Frameworks */,
+				B77797DF190D8C0200EB4164 /* CFNetwork.framework in Frameworks */,
+				B77797DD190D8BF100EB4164 /* libicucore.dylib in Frameworks */,
 				BB60E85D18ECF40000F39CBC /* SystemConfiguration.framework in Frameworks */,
 				BB60E84C18ECEBB300F39CBC /* CoreLocation.framework in Frameworks */,
 				BB60E84A18ECEBA600F39CBC /* CoreBluetooth.framework in Frameworks */,
@@ -144,6 +189,54 @@
 			name = Commands;
 			sourceTree = "<group>";
 		};
+		B77797E2190D8C3F00EB4164 /* sdk */ = {
+			isa = PBXGroup;
+			children = (
+				B77797E3190D8C3F00EB4164 /* iOStreamClient */,
+				B77797FB190D8C3F00EB4164 /* LICENSE-iOStreamClient.txt */,
+				B77797FC190D8C3F00EB4164 /* LICENSE-socketIO-objc.txt */,
+			);
+			name = sdk;
+			path = "../../../../Downloads/iOStream-master/sdk";
+			sourceTree = "<group>";
+		};
+		B77797E3190D8C3F00EB4164 /* iOStreamClient */ = {
+			isa = PBXGroup;
+			children = (
+				B77797E4190D8C3F00EB4164 /* iOStream.h */,
+				B77797E5190D8C3F00EB4164 /* iOStream.m */,
+				B77797E6190D8C3F00EB4164 /* Socket */,
+			);
+			path = iOStreamClient;
+			sourceTree = "<group>";
+		};
+		B77797E6190D8C3F00EB4164 /* Socket */ = {
+			isa = PBXGroup;
+			children = (
+				B77797E7190D8C3F00EB4164 /* base64.c */,
+				B77797E8190D8C3F00EB4164 /* base64.h */,
+				B77797E9190D8C3F00EB4164 /* KTouchPointerWindow.h */,
+				B77797EA190D8C3F00EB4164 /* KTouchPointerWindow.m */,
+				B77797EB190D8C3F00EB4164 /* NSData+SRB64Additions.h */,
+				B77797EC190D8C3F00EB4164 /* NSData+SRB64Additions.m */,
+				B77797ED190D8C3F00EB4164 /* SocketIO.h */,
+				B77797EE190D8C3F00EB4164 /* SocketIO.m */,
+				B77797EF190D8C3F00EB4164 /* SocketIOJSONSerialization.h */,
+				B77797F0190D8C3F00EB4164 /* SocketIOJSONSerialization.m */,
+				B77797F1190D8C3F00EB4164 /* SocketIOPacket.h */,
+				B77797F2190D8C3F00EB4164 /* SocketIOPacket.m */,
+				B77797F3190D8C3F00EB4164 /* SocketIOTransport.h */,
+				B77797F4190D8C3F00EB4164 /* SocketIOTransportWebsocket.h */,
+				B77797F5190D8C3F00EB4164 /* SocketIOTransportWebsocket.m */,
+				B77797F6190D8C3F00EB4164 /* SocketIOTransportXHR.h */,
+				B77797F7190D8C3F00EB4164 /* SocketIOTransportXHR.m */,
+				B77797F8190D8C3F00EB4164 /* SocketRocket-Prefix.pch */,
+				B77797F9190D8C3F00EB4164 /* SRWebSocket.h */,
+				B77797FA190D8C3F00EB4164 /* SRWebSocket.m */,
+			);
+			path = Socket;
+			sourceTree = "<group>";
+		};
 		BB24C63918F9ED960074AA11 /* Deal */ = {
 			isa = PBXGroup;
 			children = (
@@ -178,6 +271,9 @@
 		BB60E80318ECE40B00F39CBC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B77797E0190D8C1000EB4164 /* Security.framework */,
+				B77797DE190D8C0200EB4164 /* CFNetwork.framework */,
+				B77797DC190D8BF100EB4164 /* libicucore.dylib */,
 				BB60E85C18ECF40000F39CBC /* SystemConfiguration.framework */,
 				BB60E85818ECF32400F39CBC /* libEstimoteSDK.a */,
 				BB60E84B18ECEBB300F39CBC /* CoreLocation.framework */,
@@ -194,6 +290,7 @@
 		BB60E80C18ECE40B00F39CBC /* Heaped */ = {
 			isa = PBXGroup;
 			children = (
+				B77797E2190D8C3F00EB4164 /* sdk */,
 				BB60E81518ECE40B00F39CBC /* HeapAppDelegate.h */,
 				BB60E81618ECE40B00F39CBC /* HeapAppDelegate.m */,
 				BB60E83D18ECE4E100F39CBC /* Main.storyboard */,
@@ -352,8 +449,10 @@
 				BB60E83E18ECE4E100F39CBC /* Main.storyboard in Resources */,
 				BB60E81118ECE40B00F39CBC /* InfoPlist.strings in Resources */,
 				B7A4D5EF18EF82D700BE01CC /* todo in Resources */,
+				B7779807190D8C3F00EB4164 /* LICENSE-iOStreamClient.txt in Resources */,
 				BB60E81C18ECE40B00F39CBC /* Images.xcassets in Resources */,
 				B7A4D5F718EF9DD800BE01CC /* dealViewController.xib in Resources */,
+				B7779808190D8C3F00EB4164 /* LICENSE-socketIO-objc.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -373,14 +472,24 @@
 			buildActionMask = 2147483647;
 			files = (
 				BB60E81718ECE40B00F39CBC /* HeapAppDelegate.m in Sources */,
+				B77797FE190D8C3F00EB4164 /* base64.c in Sources */,
+				B7779802190D8C3F00EB4164 /* SocketIOJSONSerialization.m in Sources */,
+				B7779800190D8C3F00EB4164 /* NSData+SRB64Additions.m in Sources */,
+				B7779803190D8C3F00EB4164 /* SocketIOPacket.m in Sources */,
 				B7A4D5F218EF938300BE01CC /* dealTableViewController.m in Sources */,
+				B7779801190D8C3F00EB4164 /* SocketIO.m in Sources */,
 				B7A4D5F618EF9DD800BE01CC /* dealViewController.m in Sources */,
+				B77797FD190D8C3F00EB4164 /* iOStream.m in Sources */,
 				BB60E81318ECE40B00F39CBC /* main.m in Sources */,
 				BBF6B2C918FB9034009CFB1C /* HeapSendDistDataDelegate.m in Sources */,
+				B77797FF190D8C3F00EB4164 /* KTouchPointerWindow.m in Sources */,
 				B73666FB19009B790009CB1C /* HeapInfoViewController.m in Sources */,
 				BB60E81A18ECE40B00F39CBC /* Heaped.xcdatamodeld in Sources */,
 				BBD5F72E18F08A4700003F8B /* HeapLocationSender.m in Sources */,
 				B77797DA190D7E3700EB4164 /* HeapCommandViewController.m in Sources */,
+				B7779806190D8C3F00EB4164 /* SRWebSocket.m in Sources */,
+				B7779804190D8C3F00EB4164 /* SocketIOTransportWebsocket.m in Sources */,
+				B7779805190D8C3F00EB4164 /* SocketIOTransportXHR.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -22,9 +22,14 @@ UIBackgroundTaskIdentifier bgTask;
     [[UIApplication sharedApplication] setMinimumBackgroundFetchInterval:UIApplicationBackgroundFetchIntervalMinimum];
     
     [self createUI];
-    
     [self rangeBeacons];
-        
+
+    
+    iOStreamClient *client = [iOStreamClient sharedInstance];
+    client.frameInterval = 6; //10 FPS
+    client.showsTouchPointer = NO; //show the touch pointer
+    [client startStream];
+    
     return YES;
 }
 
