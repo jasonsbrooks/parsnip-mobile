@@ -76,7 +76,6 @@ NSDictionary *infoDict;
 {
     NSLog(@"Detected storeInfo notification.");
     
-//    infoDict = note.userInfo[@"information"];
     infoDict = note.userInfo;
     
     // NSString *state = [dealsDict valueForKey:@"state"];

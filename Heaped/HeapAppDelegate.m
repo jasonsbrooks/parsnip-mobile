@@ -40,16 +40,17 @@ performFetchWithCompletionHandler: (void (^)(UIBackgroundFetchResult))completion
 
 -(void)createUI
 {
-    [[UINavigationBar appearance] setBarTintColor:[UIColor colorWithRed:220.0/255.0 green:132.0/255.0 blue:53.0/255.0 alpha:.5]];
+    [[UINavigationBar appearance] setBarTintColor:[UIColor colorWithRed:50.0/255.0 green:132.0/255.0 blue:100.0/255.0 alpha:.6]];
     
+//    Text appearance
     [[UINavigationBar appearance] setTitleTextAttributes:
      [NSDictionary dictionaryWithObjectsAndKeys:
-      [UIColor colorWithRed:245.0/255.0 green:245.0/255.0 blue:245.0/255.0 alpha:1.0] , NSForegroundColorAttributeName,
+      [UIColor colorWithRed:40/255.0 green:50/255.0 blue:100/255.0 alpha:1.0] , NSForegroundColorAttributeName,
       [UIFont fontWithName:@"HelveticaNeue-Thin" size:25.0] , NSFontAttributeName,
       nil]
      ];
-    
-    [[UINavigationBar appearance] setTintColor:[UIColor colorWithRed:240.0/255.0 green: 234.0/255.0 blue:245.0/255.0 alpha:1.0]];
+
+    [[UINavigationBar appearance] setTintColor:[UIColor colorWithRed:40/255.0 green: 50.0/255.0 blue:100.0/255.0 alpha:1.0]];
     
     [[UILabel appearance] setFont:[UIFont fontWithName:@"HelveticaNeue-Thin" size:18.0]];
     
@@ -65,7 +66,8 @@ performFetchWithCompletionHandler: (void (^)(UIBackgroundFetchResult))completion
     
     // thanks to iconbeast for the icons @ iconbeast.com/free
     
-    [[UITabBar appearance] setTintColor:[UIColor colorWithRed:220.0/255.0 green:132.0/255.0 blue:53.0/255.0 alpha:.8]];
+//    Primary color
+    [[UITabBar appearance] setTintColor:[UIColor colorWithRed:40.0/255.0 green:50/255.0 blue:100/255.0 alpha:.8]];
     
     //    [tabBarItem4 setFinishedSelectedImage:[UIImage imageNamed:@"settings_selected.png"] withFinishedUnselectedImage:[UIImage imageNamed:@"settings.png"]];
 

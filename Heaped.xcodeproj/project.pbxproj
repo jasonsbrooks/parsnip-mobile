@@ -255,9 +255,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		BB60E80018ECE40B00F39CBC /* Heaped */ = {
+		BB60E80018ECE40B00F39CBC /* Parsnip */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = BB60E83318ECE40B00F39CBC /* Build configuration list for PBXNativeTarget "Heaped" */;
+			buildConfigurationList = BB60E83318ECE40B00F39CBC /* Build configuration list for PBXNativeTarget "Parsnip" */;
 			buildPhases = (
 				BB60E7FD18ECE40B00F39CBC /* Sources */,
 				BB60E7FE18ECE40B00F39CBC /* Frameworks */,
@@ -267,7 +267,7 @@
 			);
 			dependencies = (
 			);
-			name = Heaped;
+			name = Parsnip;
 			productName = Heaped;
 			productReference = BB60E80118ECE40B00F39CBC /* Heaped.app */;
 			productType = "com.apple.product-type.application";
@@ -325,7 +325,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				BB60E80018ECE40B00F39CBC /* Heaped */,
+				BB60E80018ECE40B00F39CBC /* Parsnip */,
 				BB60E82018ECE40B00F39CBC /* HeapedTests */,
 			);
 		};
@@ -385,7 +385,7 @@
 /* Begin PBXTargetDependency section */
 		BB60E82818ECE40B00F39CBC /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = BB60E80018ECE40B00F39CBC /* Heaped */;
+			target = BB60E80018ECE40B00F39CBC /* Parsnip */;
 			targetProxy = BB60E82718ECE40B00F39CBC /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -577,7 +577,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		BB60E83318ECE40B00F39CBC /* Build configuration list for PBXNativeTarget "Heaped" */ = {
+		BB60E83318ECE40B00F39CBC /* Build configuration list for PBXNativeTarget "Parsnip" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				BB60E83418ECE40B00F39CBC /* Debug */,
